@@ -36,11 +36,11 @@ CAmount GetBudgetSystemCollateralAmount(int nHeight) {
 
 int GetBudgetPaymentCycleBlocks()
 {
-    // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-    if (Params().NetworkID() == CBaseChainParams::MAIN) return 43200;
+    // Amount of blocks in a months period of time (using 1 minutes per) = (2160*30)
+    if (Params().NetworkID() == CBaseChainParams::MAIN) return 64800;
     //for testing purposes
 
-    return 144; //ten times per day
+    return 216; //ten times per day
 }
 
 bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, std::string& strError, int64_t& nTime, int& nConf, bool fBudgetFinalization)
@@ -936,7 +936,7 @@ void CBudgetManager::NewBlock()
     // incremental sync with our peers
     if (masternodeSync.IsSynced()) {
         LogPrint("mnbudget","CBudgetManager::NewBlock - incremental sync started\n");
-        if (chainActive.Height() % 1440 == rand() % 1440) {
+        if (chainActive.Height() % 2160 == rand() % 2160) {
             ClearSeen();
             ResetSync();
         }
