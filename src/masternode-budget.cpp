@@ -915,7 +915,7 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
     }
 
     if (nHeight > 200) {
-        return 4 * COIN * 1440 * 30;
+        return 4 * COIN * 2160 * 30;
     }
 }
 

@@ -125,8 +125,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60; // MonetaryUnit: 1 day
-        nTargetSpacing = 1 * 60;  // MonetaryUnit: 1 minute
+        nTargetTimespan = 10 * 40; // MonetaryUnit: 1 day
+        nTargetSpacing = 1 * 40;  // MonetaryUnit: 1 minute
         nMaturity = 50;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 1000000000 * COIN;

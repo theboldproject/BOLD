@@ -2155,10 +2155,10 @@ int64_t GetBlockValue(int nHeight)
 {
     if (nHeight == 0) {
         return 139439504 * COIN;
-    } else if (nHeight < 107237791) {
+    } else if (nHeight < 96514012) {
         return 36 * COIN;
-    } else if (nHeight == 107237792) {
-        return 20 * COIN;
+    } else if (nHeight == 96514013) {
+        return 14.4 * COIN;
     } else {
         return 0;
     }
