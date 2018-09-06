@@ -226,10 +226,10 @@ QT_TRANSLATE_NOOP("monetaryunit-core", ""
 QT_TRANSLATE_NOOP("monetaryunit-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("monetaryunit-core", "(11771 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("monetaryunit-core", "(19683 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("monetaryunit-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("monetaryunit-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("monetaryunit-core", "(must be 11771 for mainnet)"),
+QT_TRANSLATE_NOOP("monetaryunit-core", "(must be 19683 for mainnet)"),
 QT_TRANSLATE_NOOP("monetaryunit-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("monetaryunit-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("monetaryunit-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
