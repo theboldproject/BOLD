@@ -10,7 +10,7 @@
 #define BITCOIN_MAIN_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/phore-config.h"
+#include "config/monetaryunit-config.h"
 #endif
 
 #include "amount.h"
@@ -432,9 +432,9 @@ libzerocoin::ZerocoinParams* GetZerocoinParams(int nHeight);
 bool IsTransactionInChain(const uint256& txId, int& nHeightTx, CTransaction& tx);
 bool IsTransactionInChain(const uint256& txId, int& nHeightTx);
 bool IsBlockHashInChain(const uint256& hashBlock);
-void RecalculateZPHRSpent();
-void RecalculateZPHRMinted();
-bool RecalculatePHRSupply(int nHeightStart);
+void RecalculateZMUESpent();
+void RecalculateZMUEMinted();
+bool RecalculateMUESupply(int nHeightStart);
 bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError);
 
 

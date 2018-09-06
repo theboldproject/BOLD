@@ -15,7 +15,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"io.phore.Phore-Qt";
+        return @"io.monetaryunit.MonetaryUnit-Qt";
     } else {
         return [self __bundleIdentifier];
     }

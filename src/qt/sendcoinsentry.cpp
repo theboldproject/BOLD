@@ -32,9 +32,9 @@ SendCoinsEntry::SendCoinsEntry(QWidget* parent) : QStackedWidget(parent),
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
 
-    // normal phore address field
+    // normal monetaryunit address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying phore address(es)
+    // just a label for displaying monetaryunit address(es)
     ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
 
     // Connect signals

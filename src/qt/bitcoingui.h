@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/phore-config.h"
+#include "config/monetaryunit-config.h"
 #endif
 
 #include "amount.h"

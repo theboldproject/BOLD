@@ -265,10 +265,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop Phore server.");
+            "\nStop MonetaryUnit server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "Phore server stopping";
+    return "MonetaryUnit server stopping";
 }
 
 
@@ -352,38 +352,38 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Phore features */
-        {"phore", "masternode", &masternode, true, true, false},
-        {"phore", "listmasternodes", &listmasternodes, true, true, false},
-        {"phore", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
-        {"phore", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
-        {"phore", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
-        {"phore", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"phore", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"phore", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"phore", "masternodedebug", &masternodedebug, true, true, false},
-        {"phore", "startmasternode", &startmasternode, true, true, false},
-        {"phore", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"phore", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"phore", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"phore", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"phore", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"phore", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"phore", "mnbudget", &mnbudget, true, true, false},
-        {"phore", "preparebudget", &preparebudget, true, true, false},
-        {"phore", "submitbudget", &submitbudget, true, true, false},
-        {"phore", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"phore", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"phore", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"phore", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"phore", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"phore", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"phore", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"phore", "checkbudgets", &checkbudgets, true, true, false},
-        {"phore", "mnsync", &mnsync, true, true, false},
-        {"phore", "spork", &spork, true, true, false},
-        {"phore", "getpoolinfo", &getpoolinfo, true, true, false},
-        {"phore", "makekeypair", &makekeypair, true, true, false},
+        /* MonetaryUnit features */
+        {"monetaryunit", "masternode", &masternode, true, true, false},
+        {"monetaryunit", "listmasternodes", &listmasternodes, true, true, false},
+        {"monetaryunit", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
+        {"monetaryunit", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
+        {"monetaryunit", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"monetaryunit", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"monetaryunit", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"monetaryunit", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"monetaryunit", "masternodedebug", &masternodedebug, true, true, false},
+        {"monetaryunit", "startmasternode", &startmasternode, true, true, false},
+        {"monetaryunit", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"monetaryunit", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"monetaryunit", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"monetaryunit", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"monetaryunit", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"monetaryunit", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"monetaryunit", "mnbudget", &mnbudget, true, true, false},
+        {"monetaryunit", "preparebudget", &preparebudget, true, true, false},
+        {"monetaryunit", "submitbudget", &submitbudget, true, true, false},
+        {"monetaryunit", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"monetaryunit", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"monetaryunit", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"monetaryunit", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"monetaryunit", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"monetaryunit", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"monetaryunit", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"monetaryunit", "checkbudgets", &checkbudgets, true, true, false},
+        {"monetaryunit", "mnsync", &mnsync, true, true, false},
+        {"monetaryunit", "spork", &spork, true, true, false},
+        {"monetaryunit", "getpoolinfo", &getpoolinfo, true, true, false},
+        {"monetaryunit", "makekeypair", &makekeypair, true, true, false},
 #ifdef ENABLE_WALLET
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -615,7 +615,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> phore-cli " + methodname + " " + args + "\n";
+    return "> monetaryunit-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

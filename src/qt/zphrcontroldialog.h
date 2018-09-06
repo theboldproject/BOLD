@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZPHRCONTROLDIALOG_H
-#define ZPHRCONTROLDIALOG_H
+#ifndef ZMUECONTROLDIALOG_H
+#define ZMUECONTROLDIALOG_H
 
 #include <QDialog>
 #include <QTreeWidgetItem>
@@ -53,4 +53,4 @@ private slots:
     void ButtonAllClicked();
 };
 
-#endif // ZPHRCONTROLDIALOG_H
+#endif // ZMUECONTROLDIALOG_H

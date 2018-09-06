@@ -38,7 +38,7 @@ enum NumConnections {
     CONNECTIONS_ALL = (CONNECTIONS_IN | CONNECTIONS_OUT),
 };
 
-/** Model for Phore network client. */
+/** Model for MonetaryUnit network client. */
 class ClientModel : public QObject
 {
     Q_OBJECT
