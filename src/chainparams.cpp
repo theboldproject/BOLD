@@ -191,7 +191,8 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04659d53bd8f7ad9d34a17281febedac754e5a6eb136142d3a9c6c0ea21b6ed7498ceb3d872eed00ae755f7aeadaeb1d9ab5e1a8f1e7efcd0ddcb39d4623c12790";
+        strSporkKey = "042b9747257fcda3363d2ce9de3e23f3397e59c3ca4f3016ec62ef2b7551c49ebc38b9eba2578c3dde9038990cb051ebb465d3dc8eb8214f12d7e6eeecb1fdeb0c";
+        strSporkKeyTemp = "0434a01bd58e4c94b2b0238b4511b95e106bd3df6ca3849be89e1ee341c5f86605cb835cfc539f90121b5baee82fb4f04fcdf4c6ad244f9e3be7c10cc0d9a3d38c";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
 
         /** Zerocoin */
@@ -282,7 +283,8 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKey = "040d2595becca91020213bf94735fa26bb92a206aa21be45b0e95f205ff8588ecb9398c5c7d8cfaf78149d230b8dc066c3660573ff2104dac98e43283d6dc882d6"; 
+        strSporkKeyTemp = "049517f3cf92bcd5b1e27f03a9d8de0b979cf46add18d52975e0aa38452c7af6a79c1f9c5ad64ce5ef36900099141030b47d2e871d7f769661473cf81a7ba1491d";
+        strSporkKey = "04913cfad775d1ef346697c1caee392d2c3982c1473ed300085a4cf88440c3870574b5d0d063cd87dfd26e610a4db0f1b105fe55866face8863b07971766edfbac";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
@@ -346,6 +348,7 @@ public:
         //     "PublicKey": "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a"
         // }
         strSporkKey = "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a";
+        strSporkKeyTemp = "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a";
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
