@@ -15,6 +15,7 @@
 #include "masternode-sync.h"
 #include "net.h"
 #include "pow.h"
+#include "script/script.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
 #include "timedata.h"
@@ -102,13 +103,13 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     // Create new block
     unique_ptr<CBlockTemplate> pblocktemplate(new CBlockTemplate());
     if (!pblocktemplate.get())
-        return NULL;
+        return nullptr;
     CBlock* pblock = &pblocktemplate->block; // pointer for convenience
 
     // -regtest only: allow overriding block.nVersion with
     // -blockversion=N to test forking scenarios
     if (Params().MineBlocksOnDemand())
-        pblock->nVersion = GetArg("-blockversion", pblock->nVersion);
+        pblock->nVersion = static_cast<int32_t>(GetArg("-blockversion", pblock->nVersion));
 
     // Decide whether to include witness transactions
     // This is only needed in case the witness softfork activation is reverted
@@ -123,6 +124,12 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     txNew.vin.resize(1);
     txNew.vin[0].prevout.SetNull();
     txNew.vout.resize(1);
+
+    LogPrintf("CreateNewBlock() : chainActive.Height() = %s \n", chainActive.Height());
+    if (chainActive.Height() >= Params().LAST_POW_BLOCK()) {
+      txNew.vout[0].SetEmpty();
+    }
+    
     txNew.vout[0].scriptPubKey = scriptPubKeyIn;
     pblock->vtx.push_back(txNew);
     pblocktemplate->vTxFees.push_back(-1);   // updated at end
@@ -143,6 +150,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             unsigned int nTxNewTime = 0;
             if (pwallet->CreateCoinStake(*pwallet, pblock->nBits, nSearchTime - nLastCoinStakeSearchTime, txCoinStake, nTxNewTime)) {
                 pblock->nTime = nTxNewTime;
+ 
+                LogPrintf("CreateNewBlock() if fProofOfStake: chainActive.Height() = %s \n", chainActive.Height());
                 pblock->vtx[0].vout[0].SetEmpty();
                 pblock->vtx.push_back(CTransaction(txCoinStake));
                 fStakeFound = true;
@@ -152,7 +161,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         }
 
         if (!fStakeFound)
-            return NULL;
+            return nullptr;
     }
 
     // Block resource limits
