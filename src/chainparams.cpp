@@ -6,7 +6,6 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "libzerocoin/Params.h"
 #include "chainparams.h"
 #include "random.h"
 #include "util.h"
@@ -80,26 +79,6 @@ static const Checkpoints::CCheckpointData dataRegtest = {
     0,
     100};
 
-libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params() const
-{
-    assert(this);
-    static CBigNum bnTrustedModulus;
-    bnTrustedModulus.SetDec(zerocoinModulus);
-    static libzerocoin::ZerocoinParams ZCParams = libzerocoin::ZerocoinParams(bnTrustedModulus);
-
-    return &ZCParams;
-}
-
-libzerocoin::ZerocoinParams* CChainParams::OldZerocoin_Params() const
-{
-    assert(this);
-    static CBigNum bnTrustedModulus;
-    bnTrustedModulus.SetHex(zerocoinModulus);
-    static libzerocoin::ZerocoinParams ZCParams = libzerocoin::ZerocoinParams(bnTrustedModulus);
-
-    return &ZCParams;
-}
-
 class CMainParams : public CChainParams
 {
 public:
@@ -134,7 +113,6 @@ public:
         /** Height or Time Based Activations **/
         nLastPOWBlock = 200;
         nModifierUpdateBlock = 468744;
-        nZerocoinStartHeight = 89993;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -161,7 +139,7 @@ public:
         genesis.nNonce = 12345;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x6bb5bda42ae892d9d73efdb5ee95ac997e1d6621857d3ba1de5200fc99a2fa61"));
+        assert(hashGenesisBlock == uint256("0xa9a98ef789754ec020763ece34ea3ff28c4a41b4ed258b59a7be810ff868fb85"));
         assert(genesis.hashMerkleRoot == uint256("0x4f74c21a149b2ba9771046edb4c441aa6140c579916191ece307697f90ebd071"));
 
         vSeeds.push_back(CDNSSeedData("nodes.muex.io", "nodes.muex.io"));
@@ -194,22 +172,6 @@ public:
         strSporkKey = "042b9747257fcda3363d2ce9de3e23f3397e59c3ca4f3016ec62ef2b7551c49ebc38b9eba2578c3dde9038990cb051ebb465d3dc8eb8214f12d7e6eeecb1fdeb0c";
         strSporkKeyTemp = "0434a01bd58e4c94b2b0238b4511b95e106bd3df6ca3849be89e1ee341c5f86605cb835cfc539f90121b5baee82fb4f04fcdf4c6ad244f9e3be7c10cc0d9a3d38c";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
-
-        /** Zerocoin */
-        zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
-            "4069182906412495150821892985591491761845028084891200728449926873928072877767359714183472702618963750149718246911"
-            "6507761337985909570009733045974880842840179742910064245869181719511874612151517265463228221686998754918242243363"
-            "7259085141865462043576798423387184774447920739934236584823824281198163815010674810451660377306056201619676256133"
-            "8441436038339044149526344321901146575444541784240209246165157233507787077498171257724679629263863563732899121548"
-            "31438167899885040445364023527381951378636564391212010397122822120720357";
-
-        nZerocoinLastOldParams = 99999999; // Updated to defer zerocoin v2 for further testing.
-        nMaxZerocoinSpendsPerTransaction = 7; // Assume about 20kb each
-        nMinZerocoinMintFee = 1 * CENT; //high fee required for zerocoin mints
-        nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
-        nRequiredAccumulation = 1;
-        nDefaultSecurityLevel = 100; //full security level for accumulators
-        nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
         nBudgetFeeConfirmations = 6; // Number of confirmations for the finalization fee
     }
 
@@ -247,16 +209,13 @@ public:
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
         nLastPOWBlock = 50000;
-        nZerocoinStartHeight = 200;
-
-        nZerocoinLastOldParams = 100000000;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1505224800;
         genesis.nNonce = 12346;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xab8fa22f7b41e2411f16d53cd708efda64dd464075dc5a65e75e8c1000ba0082"));
+        assert(hashGenesisBlock == uint256("0x12328a22d6a08652dc9f6f733115a8d195f6cdb100c89c8979b1487d25ccd3cb"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -323,12 +282,10 @@ public:
         genesis.nNonce = 12345;
         nMaturity = 0;
         nLastPOWBlock = 999999999; // PoS complicates Regtest because of timing issues
-        nZerocoinLastOldParams = 499;
-        nZerocoinStartHeight = 100;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 19685;
-        assert(hashGenesisBlock == uint256("0x85873b679f128ab955a10631ab47ddf20459beb8f526a93ea1b91f87e75a7135"));
+        assert(hashGenesisBlock == uint256("0x19c95320506c1a25db643682cb74088713c18449a218c1680c026382b0e99cab"));
 
         bech32_hrp = "murt";
 
@@ -341,7 +298,6 @@ public:
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
-        nRequiredAccumulation = 1;
 
         // {
         //     "PrivateKey": "923EhWh2bJHynX6d4Tqt2Q75bhTDCT1b4kff3qzDKDZHZ6pkQs7",

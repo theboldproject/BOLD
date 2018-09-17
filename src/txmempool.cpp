@@ -423,10 +423,8 @@ bool CTxMemPool::addUnchecked(const uint256& hash, const CTxMemPoolEntry& entry)
     {
         mapTx[hash] = entry;
         const CTransaction& tx = mapTx[hash].GetTx();
-        if(!tx.IsZerocoinSpend()) {
-            for (unsigned int i = 0; i < tx.vin.size(); i++)
-                mapNextTx[tx.vin[i].prevout] = CInPoint(&tx, i);
-        }
+        for (unsigned int i = 0; i < tx.vin.size(); i++)
+            mapNextTx[tx.vin[i].prevout] = CInPoint(&tx, i);
         nTransactionsUpdated++;
         totalTxSize += entry.GetTxSize();
     }
@@ -569,8 +567,6 @@ void CTxMemPool::check(const CCoinsViewCache* pcoins) const
         const CTransaction& tx = it->second.GetTx();
         bool fDependsWait = false;
         BOOST_FOREACH (const CTxIn& txin, tx.vin) {
-            if (tx.IsZerocoinSpend())
-                continue;
             // Check that every mempool transaction's inputs refer to available coins, or other mempool tx's.
             std::map<uint256, CTxMemPoolEntry>::const_iterator it2 = mapTx.find(txin.prevout.hash);
             if (it2 != mapTx.end()) {

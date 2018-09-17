@@ -25,7 +25,6 @@
 #endif
 #include "validationinterface.h"
 #include "masternode-payments.h"
-#include "accumulators.h"
 #include "spork.h"
 
 #include <boost/thread.hpp>
@@ -118,13 +117,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     // TODO: replace this with a call to main to assess validity of a mempool
     // transaction (which in most cases can be a no-op).
     bool fIncludeWitness = IsSporkActive(SPORK_17_SEGWIT_ACTIVATION);
-
-    // Make sure to create the correct block version after zerocoin is enabled
-    bool fZerocoinActive = chainActive.Height() >= Params().Zerocoin_StartHeight();
-    if (fZerocoinActive)
-        pblock->nVersion = 4;
-    else
-        pblock->nVersion = 3;
 
     // Create coinbase tx
     CMutableTransaction txNew;
@@ -224,15 +216,11 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             if (tx.IsCoinBase() || tx.IsCoinStake() || !IsFinalTx(tx, nHeight)){
                 continue;
             }
-            if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE) && tx.ContainsZerocoins()){
-                continue;
-            }
 
             COrphan* porphan = NULL;
             double dPriority = 0;
             CAmount nTotalIn = 0;
             bool fMissingInputs = false;
-            uint256 txid = tx.GetHash();
 
             // Legacy limits on sigOps:
             int64_t nTxSigOpsCost = mi->second.GetSigOpCost();
@@ -243,33 +231,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             pblocktemplate->vTxSigOpsCost.push_back(nTxSigOpsCost);
 
             for (const CTxIn& txin : tx.vin) {
-                //zerocoinspend has special vin
-                if (tx.IsZerocoinSpend()) {
-                    nTotalIn = tx.GetZerocoinSpent();
-
-                    //Give a high priority to zerocoinspends to get into the next block
-                    //Priority = (age^6+100000)*amount - gives higher priority to zphrs that have been in mempool long
-                    //and higher priority to zphrs that are large in value
-                    int64_t nTimeSeen = GetAdjustedTime();
-                    double nConfs = 100000;
-
-                    auto it = mapZerocoinspends.find(txid);
-                    if (it != mapZerocoinspends.end()) {
-                        nTimeSeen = it->second;
-                    } else {
-                        //for some reason not in map, add it
-                        mapZerocoinspends[txid] = nTimeSeen;
-                    }
-
-                    double nTimePriority = std::pow(GetAdjustedTime() - nTimeSeen, 6);
-
-                    // zMUE spends can have very large priority, use non-overflowing safe functions
-                    dPriority = double_safe_addition(dPriority, (nTimePriority * nConfs));
-                    dPriority = double_safe_multiplication(dPriority, nTotalIn);
-
-                    continue;
-                }
-
                 // Read prev transaction
                 if (!view.HaveCoins(txin.prevout.hash)) {
                     // This should never happen; all transactions in the memory
@@ -336,8 +297,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         TxPriorityCompare comparer(fSortedByFee);
         std::make_heap(vecPriority.begin(), vecPriority.end(), comparer);
 
-        vector<CBigNum> vBlockSerials;
-        vector<CBigNum> vTxSerials;
         while (!vecPriority.empty()) {
             // Take highest priority transaction off the priority queue:
             double dPriority = vecPriority.front().get<0>();
@@ -362,7 +321,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             double dPriorityDelta = 0;
             CAmount nFeeDelta = 0;
             mempool.ApplyDeltas(hash, dPriorityDelta, nFeeDelta);
-            if (!tx.IsZerocoinSpend() && fSortedByFee && (dPriorityDelta <= 0) && (nFeeDelta <= 0) && (feeRate < ::minRelayTxFee) && (nBlockCost + nTxCost >= nBlockMinSize))
+            if (fSortedByFee && (dPriorityDelta <= 0) && (nFeeDelta <= 0) && (feeRate < ::minRelayTxFee) && (nBlockCost + nTxCost >= nBlockMinSize))
                 continue;
 
             // Prioritise by fee once past the priority size or we run out of high-priority
@@ -376,33 +335,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
             if (!view.HaveInputs(tx))
                 continue;
-
-            // double check that there are no double spent zPhr spends in this block or tx
-            if (tx.IsZerocoinSpend()) {
-                int nHeightTx = 0;
-                if (IsTransactionInChain(tx.GetHash(), nHeightTx))
-                    continue;
-
-                bool fDoubleSerial = false;
-                for (const CTxIn txIn : tx.vin) {
-                    if (txIn.scriptSig.IsZerocoinSpend()) {
-                        libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txIn);
-                        int effectiveHeight = libzerocoin::ExtractVersionFromSerial(spend.getCoinSerialNumber()) < libzerocoin::PrivateCoin::PUBKEY_VERSION ? Params().Zerocoin_LastOldParams() : Params().Zerocoin_LastOldParams() + 1;
-                        if (!spend.HasValidSerial(GetZerocoinParams(effectiveHeight)))
-                            fDoubleSerial = true;
-                        if (count(vBlockSerials.begin(), vBlockSerials.end(), spend.getCoinSerialNumber()))
-                            fDoubleSerial = true;
-                        if (count(vTxSerials.begin(), vTxSerials.end(), spend.getCoinSerialNumber()))
-                            fDoubleSerial = true;
-                        if (fDoubleSerial)
-                            break;
-                        vTxSerials.emplace_back(spend.getCoinSerialNumber());
-                    }
-                }
-                //This zMUE serial has already been included in the block, do not add this tx.
-                if (fDoubleSerial)
-                    continue;
-            }
 
             CAmount nTxFees = view.GetValueIn(tx) - tx.GetValueOut();
 
@@ -423,9 +355,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             nBlockSize += nTxSize;
             ++nBlockTx;
             nFees += nTxFees;
-
-            for (const CBigNum bnSerial : vTxSerials)
-                vBlockSerials.emplace_back(bnSerial);
 
             if (fPrintPriority) {
                 LogPrintf("priority %.1f fee %s txid %s\n",
@@ -474,29 +403,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             UpdateTime(pblock, pindexPrev);
         pblock->nBits = GetNextWorkRequired(pindexPrev, pblock);
         pblock->nNonce = 0;
-        if (fZerocoinActive) {
-            //Calculate the accumulator checkpoint only if the previous cached checkpoint need to be updated
-            uint256 nCheckpoint;
-            uint256 hashBlockLastAccumulated = chainActive[nHeight - (nHeight % 10) - 10]->GetBlockHash();
-            if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
-                //For the period before v2 activation, zMUE will be disabled and previous block's checkpoint is all that will be needed
-                pCheckpointCache.second.second = pindexPrev->nAccumulatorCheckpoint;
-                if (pindexPrev->nHeight + 2 >= Params().Zerocoin_LastOldParams()) {
-                    AccumulatorMap mapAccumulators(Params().Zerocoin_Params());
-                    if (fZerocoinActive && !CalculateAccumulatorCheckpoint(nHeight, nCheckpoint, mapAccumulators)) {
-                        LogPrintf("%s: failed to get accumulator checkpoint\n", __func__);
-                    } else {
-                        // the next time the accumulator checkpoint should be recalculated ( the next height that is multiple of 10)
-                        pCheckpointCache.first = nHeight + (10 - (nHeight % 10));
-
-                        // the block hash of the last block used in the accumulator checkpoint calc. This will handle reorg situations.
-                        pCheckpointCache.second.first = hashBlockLastAccumulated;
-                        pCheckpointCache.second.second = nCheckpoint;
-                    }
-                }
-            }
-            pblock->nAccumulatorCheckpoint = pCheckpointCache.second.second;
-        }
         pblocktemplate->vTxSigOpsCost[0] = WITNESS_SCALE_FACTOR * GetLegacySigOpCount(pblock->vtx[0]);
 
         CValidationState state;

@@ -69,7 +69,6 @@ UniValue blockheaderToJSON(const CBlockIndex* blockindex)
     result.push_back(Pair("bits", strprintf("%08x", blockindex->nBits)));
     result.push_back(Pair("difficulty", GetDifficulty(blockindex)));
     result.push_back(Pair("chainwork", blockindex->nChainWork.GetHex()));
-    result.push_back(Pair("acc_checkpoint", blockindex->nAccumulatorCheckpoint.GetHex()));
 
     if (blockindex->pprev)
         result.push_back(Pair("previousblockhash", blockindex->pprev->GetBlockHash().GetHex()));
@@ -94,7 +93,6 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
     result.push_back(Pair("height", blockindex->nHeight));
     result.push_back(Pair("version", block.nVersion));
     result.push_back(Pair("merkleroot", block.hashMerkleRoot.GetHex()));
-    result.push_back(Pair("acc_checkpoint", block.nAccumulatorCheckpoint.GetHex()));
     UniValue txs(UniValue::VARR);
     BOOST_FOREACH (const CTransaction& tx, block.vtx) {
         if (txDetails) {
@@ -118,13 +116,6 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
         result.push_back(Pair("nextblockhash", pnext->GetBlockHash().GetHex()));
 
     result.push_back(Pair("moneysupply",ValueFromAmount(blockindex->nMoneySupply)));
-
-    UniValue zphrObj(UniValue::VOBJ);
-    for (auto denom : libzerocoin::zerocoinDenomList) {
-        zphrObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
-    }
-    zphrObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
-    result.push_back(Pair("zMUEsupply", zphrObj));
 
     return result;
 }
@@ -725,11 +716,6 @@ UniValue getfeeinfo(const UniValue& params, bool fHelp)
                 continue;
 
             for (unsigned int j = 0; j < tx.vin.size(); j++) {
-                if (tx.vin[j].scriptSig.IsZerocoinSpend()) {
-                    nValueIn += tx.vin[j].nSequence * COIN;
-                    continue;
-                }
-
                 COutPoint prevout = tx.vin[j].prevout;
                 CTransaction txPrev;
                 uint256 hashBlock;
@@ -861,36 +847,4 @@ UniValue reconsiderblock(const UniValue& params, bool fHelp)
     }
 
     return NullUniValue;
-}
-
-UniValue findserial(const UniValue& params, bool fHelp)
-{
-    if(fHelp || params.size() != 1)
-        throw runtime_error(
-            "findserial \"serial\"\n"
-                "\nSearches the zerocoin database for a zerocoin spend transaction that contains the specified serial\n"
-                "\nArguments:\n"
-                "1. serial   (string, required) the serial of a zerocoin spend to search for.\n"
-                "\nResult:\n"
-                "{\n"
-                "  \"success\": true/false        (boolean) Whether the serial was found\n"
-                "  \"txid\": xxxxx                (numeric) The transaction that contains the spent serial\n"
-                "}\n"
-                "\nExamples:\n" +
-            HelpExampleCli("findserial", "\"serial\"") + HelpExampleRpc("findserial", "\"serial\""));
-
-    std::string strSerial = params[0].get_str();
-    CBigNum bnSerial = 0;
-    bnSerial.SetHex(strSerial);
-    if (!bnSerial)
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid serial");
-
-    uint256 txid = 0;
-    bool fSuccess = zerocoinDB->ReadCoinSpend(bnSerial, txid);
-
-    UniValue ret(UniValue::VOBJ);
-    ret.push_back(Pair("success", fSuccess));
-    ret.push_back(Pair("txid", txid.GetHex()));
-
-    return ret;
 }

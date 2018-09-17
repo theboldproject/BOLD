@@ -248,21 +248,6 @@ extern UniValue setstakesplitthreshold(const UniValue& params, bool fHelp);
 extern UniValue getstakesplitthreshold(const UniValue& params, bool fHelp);
 extern UniValue multisend(const UniValue& params, bool fHelp);
 extern UniValue autocombinerewards(const UniValue& params, bool fHelp);
-extern UniValue getzerocoinbalance(const UniValue& params, bool fHelp);
-extern UniValue listmintedzerocoins(const UniValue& params, bool fHelp);
-extern UniValue listspentzerocoins(const UniValue& params, bool fHelp);
-extern UniValue listzerocoinamounts(const UniValue& params, bool fHelp);
-extern UniValue mintzerocoin(const UniValue& params, bool fHelp);
-extern UniValue spendzerocoin(const UniValue& params, bool fHelp);
-extern UniValue resetmintzerocoin(const UniValue& params, bool fHelp);
-extern UniValue resetspentzerocoin(const UniValue& params, bool fHelp);
-extern UniValue getarchivedzerocoin(const UniValue& params, bool fHelp);
-extern UniValue importzerocoins(const UniValue& params, bool fHelp);
-extern UniValue exportzerocoins(const UniValue& params, bool fHelp);
-extern UniValue reconsiderzerocoins(const UniValue& params, bool fHelp);
-extern UniValue getspentzerocoinamount(const UniValue& params, bool fHelp);
-extern UniValue setzphrseed(const UniValue& params, bool fHelp);
-extern UniValue getzphrseed(const UniValue& params, bool fHelp);
 extern UniValue makekeypair(const UniValue& params, bool fHelp);
 
 extern UniValue getrawtransaction(const UniValue& params, bool fHelp); // in rcprawtransaction.cpp
@@ -277,8 +262,7 @@ extern UniValue sendrawtransaction(const UniValue& params, bool fHelp);
 extern UniValue searchrawtransactions(const UniValue& params, bool fHelp);
 
 
-extern UniValue findserial(const UniValue& params, bool fHelp); // in rpcblockchain.cpp
-extern UniValue getblockcount(const UniValue& params, bool fHelp);
+extern UniValue getblockcount(const UniValue& params, bool fHelp); // in rpcblockchain.cpp
 extern UniValue getbestblockhash(const UniValue& params, bool fHelp);
 extern UniValue getdifficulty(const UniValue& params, bool fHelp);
 extern UniValue settxfee(const UniValue& params, bool fHelp);

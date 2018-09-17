@@ -17,13 +17,11 @@
 
 const QString AddressTableModel::Send = "S";
 const QString AddressTableModel::Receive = "R";
-const QString AddressTableModel::Zerocoin = "X";
 
 struct AddressTableEntry {
     enum Type {
         Sending,
         Receiving,
-        Zerocoin,
         Hidden /* QSortFilterProxyModel will filter these out */
     };
 
@@ -141,7 +139,7 @@ public:
             break;
         }
     }
-    
+
     void updateEntry(const QString &pubCoin, const QString &isUsed, int status)
     {
         // Find address / label in model
@@ -151,7 +149,7 @@ public:
                                                                cachedAddressTable.begin(), cachedAddressTable.end(), pubCoin, AddressTableEntryLessThan());
         int lowerIndex = (lower - cachedAddressTable.begin());
         bool inModel = (lower != upper);
-        AddressTableEntry::Type newEntryType = AddressTableEntry::Zerocoin;
+        AddressTableEntry::Type newEntryType = AddressTableEntry::Hidden;
         
         switch(status)
         {
@@ -351,14 +349,11 @@ void AddressTableModel::updateEntry(const QString& address,
     priv->updateEntry(address, label, isMine, purpose, status);
 }
 
-
 void AddressTableModel::updateEntry(const QString &pubCoin, const QString &isUsed, int status)
 {
     // Update stealth address book model from Bitcoin core
     priv->updateEntry(pubCoin, isUsed, status);
 }
-
-
 
 QString AddressTableModel::addRow(const QString& type, const QString& label, const QString& address, const OutputType address_type)
 {

@@ -223,10 +223,6 @@ CAmount CCoinsViewCache::GetValueIn(const CTransaction& tx) const
     if (tx.IsCoinBase())
         return 0;
 
-    //todo are there any security precautions to take here?
-    if (tx.IsZerocoinSpend())
-        return tx.GetZerocoinSpent();
-
     CAmount nResult = 0;
     for (unsigned int i = 0; i < tx.vin.size(); i++)
         nResult += GetOutputFor(tx.vin[i]).nValue;
@@ -236,7 +232,7 @@ CAmount CCoinsViewCache::GetValueIn(const CTransaction& tx) const
 
 bool CCoinsViewCache::HaveInputs(const CTransaction& tx) const
 {
-    if (!tx.IsCoinBase() && !tx.IsZerocoinSpend()) {
+    if (!tx.IsCoinBase()) {
         for (unsigned int i = 0; i < tx.vin.size(); i++) {
             const COutPoint& prevout = tx.vin[i].prevout;
             const CCoins* coins = AccessCoins(prevout.hash);
@@ -254,15 +250,11 @@ double CCoinsViewCache::GetPriority(const CTransaction& tx, int nHeight) const
         return 0.0;
     double dResult = 0.0;
     for (const CTxIn& txin:  tx.vin) {
-        if (!tx.IsZerocoinSpend()) {
-            const CCoins* coins = AccessCoins(txin.prevout.hash);
-            assert(coins);
-            if (!coins->IsAvailable(txin.prevout.n)) continue;
-            if (coins->nHeight < nHeight) {
-                dResult += coins->vout[txin.prevout.n].nValue * (nHeight - coins->nHeight); // value * age
-            }
-        } else {
-            dResult += tx.GetZerocoinSpent(); // we do not know the age of a zerocoin tx
+        const CCoins* coins = AccessCoins(txin.prevout.hash);
+        assert(coins);
+        if (!coins->IsAvailable(txin.prevout.n)) continue;
+        if (coins->nHeight < nHeight) {
+            dResult += coins->vout[txin.prevout.n].nValue * (nHeight - coins->nHeight); // value * age
         }
     }
     return tx.ComputePriority(dResult);
