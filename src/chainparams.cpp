@@ -142,11 +142,10 @@ public:
         assert(hashGenesisBlock == uint256("0xa9a98ef789754ec020763ece34ea3ff28c4a41b4ed258b59a7be810ff868fb85"));
         assert(genesis.hashMerkleRoot == uint256("0x4f74c21a149b2ba9771046edb4c441aa6140c579916191ece307697f90ebd071"));
 
-        vSeeds.push_back(CDNSSeedData("nodes.muex.io", "nodes.muex.io"));
-        vSeeds.push_back(CDNSSeedData("nodes.monetaryunit.org", "nodes.monetaryunit.org"));
-        vSeeds.push_back(CDNSSeedData("nodes.mymue.com", "nodes.mymue.com"));
-        vSeeds.push_back(CDNSSeedData("nodes.cryptophi.com", "nodes.cryptophi.com"));
-
+        vSeeds.push_back(CDNSSeedData("dns1", "dns1.monetaryunit.org"));
+        vSeeds.push_back(CDNSSeedData("dns2", "dns2.monetaryunit.org"));
+        vSeeds.push_back(CDNSSeedData("dns3", "dns3.monetaryunit.org"));
+        
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 16);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 76);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 126);
@@ -219,6 +218,9 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
+
+        vSeeds.push_back(CDNSSeedData("testnetdns", "testnetdns.monetaryunit.org"));
+
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet monetaryunit addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet monetaryunit script addresses start with '8' or '9'
