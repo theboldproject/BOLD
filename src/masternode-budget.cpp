@@ -27,16 +27,12 @@ std::vector<CFinalizedBudgetBroadcast> vecImmatureFinalizedBudgets;
 int nSubmittedFinalBudget;
 
 CAmount GetBudgetSystemCollateralAmount(int nHeight) {
-    if (nHeight <= 250000) {
-        return 50 * COIN;
-    } else {
-        return 25 * COIN;
-    }
+    return 25 * COIN;
 }
 
 int GetBudgetPaymentCycleBlocks()
 {
-    // Amount of blocks in a months period of time (using 1 minutes per) = (2160*30)
+    // Amount of blocks in a 30 day period of time (using 40 seconds per block) = (30*24*60*60/40)
     if (Params().NetworkID() == CBaseChainParams::MAIN) return 64800;
     //for testing purposes
 
