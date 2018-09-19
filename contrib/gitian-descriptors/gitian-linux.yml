@@ -29,8 +29,8 @@ packages:
 - "python"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://github.com/monetaryunitproject/monetaryunit.git"
-  "dir": "monetaryunit"
+- "url": "https://github.com/savvyblockproject/mue.git"
+  "dir": "mue"
 files: []
 script: |
 

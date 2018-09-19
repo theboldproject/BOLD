@@ -7,7 +7,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/monetaryunitproject/monetaryunit-detached-sigs.git"
+- "url": "https://github.com/savvyblockproject/mue-detached-sigs.git"
   "dir": "signature"
 files:
 - "monetaryunit-osx-unsigned.tar.gz"

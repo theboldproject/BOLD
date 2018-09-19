@@ -22,8 +22,8 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/monetaryunitproject/monetaryunit.git"
-  "dir": "monetaryunit"
+- "url": "https://github.com/savvyblockproject/mue.git"
+  "dir": "mue"
 files: []
 script: |
   WRAP_DIR=$HOME/wrapped
