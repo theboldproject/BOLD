@@ -197,8 +197,8 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "042b9747257fcda3363d2ce9de3e23f3397e59c3ca4f3016ec62ef2b7551c49ebc38b9eba2578c3dde9038990cb051ebb465d3dc8eb8214f12d7e6eeecb1fdeb0c";
-        strSporkKeyTemp = "0434a01bd58e4c94b2b0238b4511b95e106bd3df6ca3849be89e1ee341c5f86605cb835cfc539f90121b5baee82fb4f04fcdf4c6ad244f9e3be7c10cc0d9a3d38c";
+        strSporkKey = "04320b805fb0fa675ecd122e7f7f2b11b79e91761aabcc854dca3864aaa43ca344b338f14b1bf96d656bbe7a331e13a5f52f7d4dd17781e15b367b1af6a86203b7";
+        strSporkKeyTemp = "049d3fe33e69dc47cfb0970f8318dcc3c708aabccb5e5f0c11d7dc98c6fb0ceb8f0f761a2da726b7930e42f75c492893523e0e8d7b8014bda16f23f2cfd5d0cbd9";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 6; // Number of confirmations for the finalization fee
     }
@@ -303,7 +303,7 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKeyTemp = "049517f3cf92bcd5b1e27f03a9d8de0b979cf46add18d52975e0aa38452c7af6a79c1f9c5ad64ce5ef36900099141030b47d2e871d7f769661473cf81a7ba1491d";
-        strSporkKey = "04913cfad775d1ef346697c1caee392d2c3982c1473ed300085a4cf88440c3870574b5d0d063cd87dfd26e610a4db0f1b105fe55866face8863b07971766edfbac";
+        strSporkKey = "04879b18004f42d99d42ed2808aa0a87547335cb085e06f4e051dae51bf29db26e75fc50f9393633f3e3a6944e00619d481e130c0ac82f0061c3abe710e5b30293";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
