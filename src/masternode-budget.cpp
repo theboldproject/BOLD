@@ -32,10 +32,10 @@ CAmount GetBudgetSystemCollateralAmount(int nHeight) {
 
 int GetBudgetPaymentCycleBlocks()
 {
-    // Amount of blocks in a 30 day period of time (using 40 seconds per block) = (30*24*60*60/40)
-    if (Params().NetworkID() == CBaseChainParams::MAIN) return 64800;
+    // Amount of blocks in a 14 day period of time (using 40 seconds per block) = (14*24*60*60/40)
+    if (Params().NetworkID() == CBaseChainParams::MAIN) return 30240;
+    
     //for testing purposes
-
     return 216; //ten times per day
 }
 
@@ -166,8 +166,8 @@ void CBudgetManager::SubmitFinalBudget()
         return;
     }
  
-    // Submit final budget during the last 2 days (2880 blocks) before payment for Mainnet, about 9 minutes (9 blocks) for Testnet
-    int finalizationWindow = ((GetBudgetPaymentCycleBlocks() / 30) * 2);
+    // Submit final budget during the last 2 days (4,320 blocks) before payment for Mainnet, about 9 minutes (9 blocks) for Testnet
+    int finalizationWindow = ((GetBudgetPaymentCycleBlocks() / 14) * 2);
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         // NOTE: 9 blocks for testnet is way to short to have any masternode submit an automatic vote on the finalized(!) budget,
@@ -911,7 +911,7 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
     }
 
     if (nHeight > 200 && nHeight <= 96514012) {
-        return 4 * COIN * 2160 * 30;
+        return 4 * COIN * 2160 * 14;
     }
     return 0;
 }
