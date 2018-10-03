@@ -55,7 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (     0, uint256("0x1f5a41cef13983949b22d9dbeda4bb932709786633ef4acf7a9eda5437e51a46"));
+    (     0, uint256("1f5a41cef13983949b22d9dbeda4bb932709786633ef4acf7a9eda5437e51a46"));
     
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -66,7 +66,7 @@ static const Checkpoints::CCheckpointData data = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("0x1785d5da14778e4381c123748b01b5715f4faa4bdad72b5380d3e3ba04ff1c08"));
+    boost::assign::map_list_of(0, uint256("1785d5da14778e4381c123748b01b5715f4faa4bdad72b5380d3e3ba04ff1c08"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1505224800,
@@ -74,7 +74,7 @@ static const Checkpoints::CCheckpointData dataTestnet = {
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("0x1998a6003c5d9d9acd43e0c6c4d919e1e3dbd537efbd8d1c124db69e40bc0b30"));
+    boost::assign::map_list_of(0, uint256("1998a6003c5d9d9acd43e0c6c4d919e1e3dbd537efbd8d1c124db69e40bc0b30"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
     1505224800,
@@ -198,8 +198,8 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04320b805fb0fa675ecd122e7f7f2b11b79e91761aabcc854dca3864aaa43ca344b338f14b1bf96d656bbe7a331e13a5f52f7d4dd17781e15b367b1af6a86203b7";
-        strSporkKeyTemp = "049d3fe33e69dc47cfb0970f8318dcc3c708aabccb5e5f0c11d7dc98c6fb0ceb8f0f761a2da726b7930e42f75c492893523e0e8d7b8014bda16f23f2cfd5d0cbd9";
+        strSporkKey = "04516fdb52d5d008b400317d8a79d83c85b152dc6f45b593b15fd9c3074bf2719ff4edadf6a4de4964da269ca33db7f804dc5266c2abb36bba5b08837f2efd51f4";
+        strSporkKeyTemp = "04d81bc201cf6df0e9a39b21c24000cf5a804949aaf0f352bcf07a5360e54a14bfe1090372fd502dd3646fa7f3aa5083531f8274f9b3891dbbed4b53fe89cb34c5";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 6; // Number of confirmations for the finalization fee
     }
