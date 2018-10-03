@@ -110,11 +110,11 @@ public:
         nTargetSpacing = 1 * 40;  // MonetaryUnit: 40 seconds
         nMaturity = 50;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 1000000000 * COIN;
+        nMaxMoneyOut = 4000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 200;
-        nModifierUpdateBlock = 468744;
+        nLastPOWBlock = 400;
+        nModifierUpdateBlock = 1;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
