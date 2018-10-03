@@ -926,8 +926,8 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         }
 
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
-            if (addr.GetPort() != 19683) return;
-        } else if (addr.GetPort() == 19683)
+            if (addr.GetPort() != 19687) return;
+        } else if (addr.GetPort() == 19687)
             return;
 
         //search existing Masternode list, this is where we update existing Masternodes with new dsee broadcasts

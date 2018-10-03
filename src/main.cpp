@@ -1607,7 +1607,9 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     if (nHeight == 0) {
-        return 139441613 * COIN;
+        // TODO Moonshot: Added 100 million MUE for test run
+        return 239441613 * COIN;
+        //return 139441613 * COIN;
     } else if (nHeight <= 96513959) {
         return 36 * COIN;
     } else if (nHeight == 96513960) {
