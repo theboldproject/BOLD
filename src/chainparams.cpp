@@ -55,7 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (     0, uint256("1f5a41cef13983949b22d9dbeda4bb932709786633ef4acf7a9eda5437e51a46"));
+    (     0, uint256("0b58ed450b3819ca54ab0054c4d220ca4f887d21c9e55d2a333173adf76d987f"));
     
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -66,7 +66,7 @@ static const Checkpoints::CCheckpointData data = {
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("1785d5da14778e4381c123748b01b5715f4faa4bdad72b5380d3e3ba04ff1c08"));
+    boost::assign::map_list_of(0, uint256("7fbf5849b7a8602fecd2d5e4465b3d4f0bfb482b02c87388b925009d14ba7e42"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
     1505224800,
@@ -74,7 +74,7 @@ static const Checkpoints::CCheckpointData dataTestnet = {
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("1998a6003c5d9d9acd43e0c6c4d919e1e3dbd537efbd8d1c124db69e40bc0b30"));
+    boost::assign::map_list_of(0, uint256("613e35c5b607586d3f5b8b109d162eac5fca0be0b0fa282277092e8dea8af138"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
     1505224800,
@@ -113,8 +113,7 @@ public:
         nMaxMoneyOut = 4000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        // TODO Moonshot: Change last POW block back to 400 for real mainnet launch
-        nLastPOWBlock = 900;
+        nLastPOWBlock = 400;
         nModifierUpdateBlock = 1;
 
         /**
@@ -127,7 +126,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Bitcoin Block #544171: 0x0000000000000000002044427f9186e47dbe5c5157d175d81c5ab0416227dc6f";
+        const char* pszTimestamp = "Bitcoin Block #544381: 0000000000000000000d5d1647cd5174020d034977a7a133b1aed48df6671818";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -139,7 +138,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1536266133;
         genesis.nBits = 0x207fffff;;
-        genesis.nNonce = 5;
+        genesis.nNonce = 1;
 
         hashGenesisBlock = genesis.GetHash();
         if (regenerate) {
@@ -167,10 +166,10 @@ public:
             LogPrintf(" time: %u\n", genesis.nTime);
             LogPrintf(" hash: 0x%s\n", genesis.GetHash().ToString().c_str());
             LogPrintf(" merklehash: 0x%s\n", genesis.hashMerkleRoot.ToString().c_str());
-            assert(hashGenesisBlock == uint256("0x1f5a41cef13983949b22d9dbeda4bb932709786633ef4acf7a9eda5437e51a46"));
-            assert(genesis.hashMerkleRoot == uint256("0x8774d5554422df62b26e0477edba63ec6568acf2d5bfa7d34c883e2f9b700614"));
+            assert(hashGenesisBlock == uint256("0x0b58ed450b3819ca54ab0054c4d220ca4f887d21c9e55d2a333173adf76d987f"));
+            assert(genesis.hashMerkleRoot == uint256("0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e"));
         }
-        // Mainnet --- nonce: 5 time: 1536266133 hash: 0x1f5a41cef13983949b22d9dbeda4bb932709786633ef4acf7a9eda5437e51a46 merklehash: 0x8774d5554422df62b26e0477edba63ec6568acf2d5bfa7d34c883e2f9b700614
+        // Mainnet --- nonce: 1 time: 1536266133 hash: 0x0b58ed450b3819ca54ab0054c4d220ca4f887d21c9e55d2a333173adf76d987f merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
         vSeeds.push_back(CDNSSeedData("dns1", "dns1.monetaryunit.org"));
         vSeeds.push_back(CDNSSeedData("dns2", "dns2.monetaryunit.org"));
@@ -270,10 +269,10 @@ public:
             LogPrintf(" time: %u\n", genesis.nTime);
             LogPrintf(" hash: 0x%s\n", genesis.GetHash().ToString().c_str());
             LogPrintf(" merklehash: 0x%s\n", genesis.hashMerkleRoot.ToString().c_str());
-            assert(hashGenesisBlock == uint256("0x1785d5da14778e4381c123748b01b5715f4faa4bdad72b5380d3e3ba04ff1c08"));
-            assert(genesis.hashMerkleRoot == uint256("0x8774d5554422df62b26e0477edba63ec6568acf2d5bfa7d34c883e2f9b700614"));
+            assert(hashGenesisBlock == uint256("0x7fbf5849b7a8602fecd2d5e4465b3d4f0bfb482b02c87388b925009d14ba7e42"));
+            assert(genesis.hashMerkleRoot == uint256("0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e"));
         }
-        // Testnet --- nonce: 1 time: 1505224800 hash: 0x1785d5da14778e4381c123748b01b5715f4faa4bdad72b5380d3e3ba04ff1c08 merklehash: 0x8774d5554422df62b26e0477edba63ec6568acf2d5bfa7d34c883e2f9b700614
+        // Testnet --- nonce: 1 time: 1505224800 hash: 0x7fbf5849b7a8602fecd2d5e4465b3d4f0bfb482b02c87388b925009d14ba7e42 merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -371,10 +370,10 @@ public:
             LogPrintf(" time: %u\n", genesis.nTime);
             LogPrintf(" hash: 0x%s\n", genesis.GetHash().ToString().c_str());
             LogPrintf(" merklehash: 0x%s\n", genesis.hashMerkleRoot.ToString().c_str());
-            assert(hashGenesisBlock == uint256("0x1998a6003c5d9d9acd43e0c6c4d919e1e3dbd537efbd8d1c124db69e40bc0b30"));
-            assert(genesis.hashMerkleRoot == uint256("0x8774d5554422df62b26e0477edba63ec6568acf2d5bfa7d34c883e2f9b700614"));
+            assert(hashGenesisBlock == uint256("0x613e35c5b607586d3f5b8b109d162eac5fca0be0b0fa282277092e8dea8af138"));
+            assert(genesis.hashMerkleRoot == uint256("0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e"));
         }
-        // Regtestnet --- nonce: 12346 time: 1505224800 hash: 0x1998a6003c5d9d9acd43e0c6c4d919e1e3dbd537efbd8d1c124db69e40bc0b30 merklehash: 0x8774d5554422df62b26e0477edba63ec6568acf2d5bfa7d34c883e2f9b700614
+        // Regtestnet --- nonce: 12347 time: 1505224800 hash: 0x613e35c5b607586d3f5b8b109d162eac5fca0be0b0fa282277092e8dea8af138 merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
         if (regenerate)
             exit(0);
