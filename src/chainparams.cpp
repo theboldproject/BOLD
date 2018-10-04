@@ -339,7 +339,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1505224800;
         genesis.nBits = 0x207fffff;
-        genesis.nNonce = 12346;
+        genesis.nNonce = 12347;
         nMaturity = 0;
         nLastPOWBlock = 999999999; // PoS complicates Regtest because of timing issues
         nDefaultPort = 19685;
