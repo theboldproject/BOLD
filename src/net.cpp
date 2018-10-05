@@ -235,7 +235,7 @@ void AdvertizeLocal(CNode* pnode)
             addrLocal.SetIP(pnode->addrLocal);
         }
         if (addrLocal.IsRoutable()) {
-            LogPrintf("AdvertizeLocal: advertizing address %s\n", addrLocal.ToString());
+            LogPrintf("AdvertizeLocal: advertising address %s\n", addrLocal.ToString());
             pnode->PushAddress(addrLocal);
         }
     }
