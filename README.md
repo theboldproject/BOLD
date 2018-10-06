@@ -45,4 +45,4 @@ Please follow these simple steps
 You should now see your old MUE balance re-instated into the new MUE 2.0 wallet.
 For security, we recommend you now send those coins to yourself to a newly generated receive address created in your own 2.0 wallet.
 
-For support, please don't hesitate to join us in our chat platfor at http://discord.gg/5PD3X7G
+For support, please don't hesitate to join us in our chat platform at http://discord.gg/5PD3X7G
