@@ -27,3 +27,22 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 <tr><td>1-96514012</td><td>36 MUE</td><td>18 MUE</td><td>18 MUE</td><td>4 MUE</td></tr>
 <tr><td>96514013+</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td></tr>
 </table>
+
+## Importing wallet balances from MUE 1.0.3 wallets into MUE 2.0 wallets ##
+
+MUE has migrated to a completely new codebase, and as such, is no longer compatible with the previous network and blockchain used by the old 1.0.3 wallets.
+As part of the migration to the MUE 2.0 wallets and network, users can redeem their old wallet balances into their new wallets.
+This process is simple, but if not done correctly could risk you losing all your coins.
+Please follow these simple steps
+1) BACKUP your old MUE wallet (most critical is your wallet.dat file!)
+2) Move that back up somewhere safe e.g USB drive, seperate computer.
+3) Make a list of your wallet addresses (you may need to look in "coin control" for a full list)
+4) For each wallet address (that you know has a balance of MUE) run "dumpprivkey enteryourmuewalletaddresshere"
+5) Record the private key (securely & safely) that is printed in the debug console
+6) Install the new MUE 2.0 wallet
+7) run importprivkey enteryourprivatekeyhere
+
+You should now see your old MUE balance re-instated into the new MUE 2.0 wallet.
+For security, we recommend you now send those coins to yourself to a newly generated receive address created in your own 2.0 wallet.
+
+For support, please don't hesitate to join us in our chat platfor at http://discord.gg/5PD3X7G
