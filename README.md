@@ -1,3 +1,4 @@
+MUE 2.0
 MonetaryUnit Core integration/staging repository
 =====================================
 
