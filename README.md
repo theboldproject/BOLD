@@ -33,6 +33,9 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 MUE has migrated to a completely new codebase, and as such, is no longer compatible with the previous network and blockchain used by the old 1.0.3 wallets.
 As part of the migration to the MUE 2.0 wallets and network, users can redeem their old wallet balances* into their new wallets.
 This process is simple, but if not done correctly could risk you losing all your coins.
+
+## NEVER UNDER ANY CIRCUMSTANCES GIVE AWAY YOUR PRIVATE KEYS TO ANYONE, THE ONE WHO HAS YOUR KEYS CONTROLS YOUR MUE ##
+
 Please follow these simple steps
 1) BACKUP your old MUE wallet, make multiple copies (most critical is your wallet.dat file!)
 2) Copy that back up somewhere safe e.g USB drive, seperate computer.
