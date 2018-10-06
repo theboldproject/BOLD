@@ -37,10 +37,12 @@ Please follow these simple steps
 1) BACKUP your old MUE wallet (most critical is your wallet.dat file!)
 2) Move that back up somewhere safe e.g USB drive, seperate computer.
 3) Make a list of your wallet addresses (you may need to look in "coin control" for a full list)
-4) For each wallet address (that you know has a balance of MUE) run "dumpprivkey enteryourmuewalletaddresshere"
-5) Record the private key (securely & safely) that is printed in the debug console
-6) Install the new MUE 2.0 wallet
-7) run importprivkey enteryourprivatekeyhere
+4) For each wallet address (that you know has a balance of MUE) in debug console run "dumpprivkey enteryourmuewalletaddresshere"
+5) Record the private key (securely & safely) that is printed there
+6) As per item 2) Backup your old MUE wallet (just to be sure).  Again, critical is your wallet.dat file
+7) Uninstall your old MUE wallet IF you are installing the 2.0 wallet on the same machine (to avoid any conflicts)
+8) Install the new MUE 2.0 wallet
+9) run importprivkey enteryourprivatekeyhere
 
 You should now see your old MUE balance re-instated into the new MUE 2.0 wallet.
 For security, we recommend you now send those coins to yourself to a newly generated receive address created in your own 2.0 wallet.
