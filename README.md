@@ -36,7 +36,7 @@ This process is simple, but if not done correctly could risk you losing all your
 Please follow these simple steps
 1) BACKUP your old MUE wallet, make multiple copies (most critical is your wallet.dat file!)
 2) Copy that back up somewhere safe e.g USB drive, seperate computer.
-3) Make a list of your wallet addresses (you may need to look in "coin control" for a full list). If coin control is not availabel in the send tab or your wallet, then activate this under `śettings / Options / Wallet / Enable Coin Control Features`
+3) Make a list of your wallet addresses (you may need to look in "coin control" for a full list). If coin control is not available in the send tab of your wallet, then activate this under `śettings / Options / Wallet / Enable Coin Control Features`
 4) For each wallet address (that you know has a balance of MUE) in debug console run `dumpprivkey 7enteryourmuewalletaddresshere`
 5) Record the private key (securely & safely) that is printed there
 6) As per item 2) Backup your old MUE wallet (just to be sure).  Again, critical is your wallet.dat file
