@@ -28,6 +28,13 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 <tr><td>96514013+</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td></tr>
 </table>
 
+## Nodes for syncing wallet ##
+dns1.monetaryunit.org
+dns2.monetaryunit.org
+dns3.monetaryunit.org
+192.99.217.102
+164.132.151.109
+
 ## Importing wallet balances from MUE 1.0.3 wallets into MUE 2.0 wallets ##
 
 MUE has migrated to a completely new codebase, and as such, is no longer compatible with the previous network and blockchain used by the old 1.0.3 wallets.
