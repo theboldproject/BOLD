@@ -29,10 +29,10 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 </table>
 
 ## Nodes for syncing wallet ##
-dns1.monetaryunit.org
-dns2.monetaryunit.org
-dns3.monetaryunit.org
-192.99.217.102
+dns1.monetaryunit.org<br>
+dns2.monetaryunit.org<br>
+dns3.monetaryunit.org<br>
+192.99.217.102<br>
 164.132.151.109
 
 ## Importing wallet balances from MUE 1.0.3 wallets into MUE 2.0 wallets ##
