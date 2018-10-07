@@ -28,6 +28,15 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 <tr><td>96514013+</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td></tr>
 </table>
 
+## MUE resources ##
+* Client & Source:
+[Client Binaries](https://github.com/muecoin/MUE/releases)
+[Source Code](https://github.com/muecoin/MUE)
+* Links:
+[Homepage](https://www.monetaryunit.org)
+[CoinBuy](https://www.coinbuy.com)
+[CryptoFeed](https://cryptofeed.io)
+
 ## Nodes & ports ##
 dns1.monetaryunit.org<br>
 dns2.monetaryunit.org<br>
