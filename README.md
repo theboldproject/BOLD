@@ -28,12 +28,13 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 <tr><td>96514013+</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td><td>0 MUE</td></tr>
 </table>
 
-## Nodes for syncing wallet ##
+## Nodes & ports ##
 dns1.monetaryunit.org<br>
 dns2.monetaryunit.org<br>
 dns3.monetaryunit.org<br>
 192.99.217.102<br>
-164.132.151.109
+164.132.151.109<br>
+p2p port :19687
 
 ## Importing wallet balances from MUE 1.0.3 wallets into MUE 2.0 wallets ##
 
