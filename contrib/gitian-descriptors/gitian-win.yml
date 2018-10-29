@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/savvyblockproject/mue.git"
+- "url": "https://github.com/muecoin/mue.git"
   "dir": "mue"
 files: []
 script: |
