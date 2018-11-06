@@ -4305,3 +4305,4 @@ string CWallet::GetUniqueWalletBackupName() const
     ssDateTime << gregorian::to_iso_extended_string(timeLocal.date()) << "-" << timeLocal.time_of_day();
     return strprintf("wallet.dat%s", DateTimeStrFormat(".%Y-%m-%d-%H-%M", GetTime()));
 }
+
