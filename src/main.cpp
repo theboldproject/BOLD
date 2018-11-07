@@ -3163,9 +3163,24 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                 REJECT_INVALID, "bad-cb-multiple");
 
     if (block.IsProofOfStake()) {
-        // Coinbase output should be empty if proof-of-stake block
         int commitpos = GetWitnessCommitmentIndex(block);
-        if (block.vtx[0].vout.size() != (commitpos == -1 ? 1 : 2) || !block.vtx[0].vout[0].IsEmpty())
+        if (commitpos >= 0) {
+            if (IsSporkActive(SPORK_19_SEGWIT_ON_COINBASE)) {
+                if (block.vtx[0].vout.size() != 2)
+                    return state.DoS(100, error("CheckBlock() : coinbase output has wrong size for proof-of-stake block"));
+                if (!block.vtx[0].vout[1].scriptPubKey.IsUnspendable())
+                    return state.DoS(100, error("CheckBlock() : coinbase must be unspendable for proof-of-stake block"));
+            }
+            else {
+                return state.DoS(100, error("CheckBlock() : staking-on-segwit is not enabled"));
+            }
+        }
+        else {
+            if (block.vtx[0].vout.size() != 1)
+                return state.DoS(100, error("CheckBlock() : coinbase output has wrong size for proof-of-stake block"));
+        }
+        // Coinbase output should be empty if proof-of-stake block
+        if (!block.vtx[0].vout[0].IsEmpty())
             return state.DoS(100, error("CheckBlock() : coinbase output not empty for proof-of-stake block"));
 
         // Second transaction must be coinstake, the rest must not be
@@ -3435,6 +3450,14 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
     if (GetSporkValue(SPORK_17_SEGWIT_ACTIVATION) < pindexPrev->nTime) {
         int commitpos = GetWitnessCommitmentIndex(block);
         if (commitpos != -1) {
+            if (!IsSporkActive(SPORK_19_SEGWIT_ON_COINBASE)) {
+                if (fDebug) {
+                    LogPrintf("CheckBlock() : staking-on-segwit is not enabled.\n");
+                }
+                return false;
+            }
+
+
             bool malleated = false;
             uint256 hashWitness = BlockWitnessMerkleRoot(block, &malleated);
             // The malleation check is ignored; as the transaction tree itself
