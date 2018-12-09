@@ -1,5 +1,5 @@
 ---
-name: "monetaryunit-aarch64-1.3"
+name: "monetaryunit-aarch64-2.1"
 enable_cache: true
 suites:
 - "xenial"

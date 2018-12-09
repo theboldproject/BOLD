@@ -1,5 +1,5 @@
 ---
-name: "monetaryunit-win-1.3"
+name: "monetaryunit-win-2.1"
 enable_cache: true
 suites:
 - "trusty"
