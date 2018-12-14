@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>＆新規</translation>
+        <translation>新規</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
@@ -21,7 +21,7 @@
     </message>
     <message>
         <source>&amp;Copy</source>
-        <translation>＆コピー</translation>
+        <translation>コピー</translation>
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
@@ -29,7 +29,7 @@
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>＆削除</translation>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
@@ -37,11 +37,11 @@
     </message>
     <message>
         <source>&amp;Export</source>
-        <translation>＆エクスポート</translation>
+        <translation>エクスポート</translation>
     </message>
     <message>
         <source>C&amp;lose</source>
-        <translation>＆閉じる</translation>
+        <translation>閉じる</translation>
     </message>
     <message>
         <source>Choose the address to send coins to</source>
@@ -53,7 +53,7 @@
     </message>
     <message>
         <source>C&amp;hoose</source>
-        <translation>＆選択</translation>
+        <translation>選択</translation>
     </message>
     <message>
         <source>Sending addresses</source>
@@ -73,15 +73,15 @@
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation>＆アドレスをコピー</translation>
+        <translation>アドレスをコピー</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>＆ラベルをコピー</translation>
+        <translation>ラベルをコピー</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
-        <translation>＆編集</translation>
+        <translation>編集</translation>
     </message>
     <message>
         <source>Export Address List</source>
@@ -1361,7 +1361,7 @@ Address: %4
     </message>
     <message>
         <source>Alias</source>
-        <translation>エイリアス</translation>
+        <translation>名前</translation>
     </message>
     <message>
         <source>Address</source>
@@ -1388,8 +1388,20 @@ Address: %4
         <translation>共通鍵</translation>
     </message>
     <message>
+        <source>G&amp;et MN Priv Key</source>
+        <translation>&amp;MN Privキー取得</translation>
+    </message>
+    <message>
+        <source>G&amp;et Outputs</source>
+        <translation>&amp;アウトプット取得</translation>
+    </message>
+    <message>
+        <source>C&amp;onfigure Masternode</source>
+        <translation>&amp;MNを設定</translation>
+    </message>
+    <message>
         <source>S&amp;tart alias</source>
-        <translation>&amp;エイリアスからスタート</translation>
+        <translation>&amp;名前からスタート</translation>
     </message>
     <message>
         <source>Start &amp;all</source>
@@ -1401,11 +1413,11 @@ Address: %4
     </message>
     <message>
         <source>&amp;Update status</source>
-        <translation>&amp;ステータスアップデート</translation>
+        <translation>&amp;更新</translation>
     </message>
     <message>
-        <source>Update in (sec):</source>
-        <translation>ステータスは自動的にアップデートされます。(秒):</translation>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>自動更新(秒):</translation>
     </message>
     <message>
         <source>0</source>
@@ -1413,7 +1425,19 @@ Address: %4
     </message>
     <message>
         <source>Start alias</source>
-        <translation>エイリアスからスタート</translation>
+        <translation>名前からスタート</translation>
+    </message>
+    <message>
+        <source>Copy alias</source>
+        <translation>コピー</translation>
+    </message>
+    <message>
+        <source>Edit alias</source>
+        <translation>編集</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>削除</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
@@ -2377,7 +2401,7 @@ To enable AutoMint add &apos;enablezeromint=1&apos; in monetaryunit.conf</source
     </message>
     <message>
         <source>Enter a MonetaryUnit address (e.g. %1)</source>
-        <translation>MonetaryUnitアドレスを入力してください。 (例: %1)</translation>
+        <translation>MonetaryUnitアドレスを入力してください (例: %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2442,6 +2466,26 @@ To enable AutoMint add &apos;enablezeromint=1&apos; in monetaryunit.conf</source
     <message>
         <source>MonetaryUnit Core didn&apos;t yet exit safely...</source>
         <translation>MonetaryUnit コアは正常に停止していません...</translation>
+    </message>
+    <message>
+        <source>Enter a Masternode Alias (e.g. %1)</source>
+        <translation>マスターノード名を入力 (例: %1)</translation>
+    </message>
+    <message>
+        <source>Enter a VPS IP (e.g. %1)</source>
+        <translation>VPSのIPアドレスを入力 (例: %1)</translation>
+    </message>
+    <message>
+        <source>Enter a Private Key (e.g. %1)</source>
+        <translation>プライベートキーを入力 (例: %1)</translation>
+    </message>
+    <message>
+        <source>Enter a TX Output (e.g. %1)</source>
+        <translation>アウトプットTXIDを入力 (例: %1)</translation>
+    </message>
+    <message>
+        <source>Enter a TX Index (e.g. %1)</source>
+        <translation>TXインデックスを入力 (例: %1)</translation>
     </message>
 </context>
 <context>
@@ -2806,7 +2850,7 @@ To enable AutoMint add &apos;enablezeromint=1&apos; in monetaryunit.conf</source
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
-        <translation>新しい受け取りアドレスに紐づく追加のラベル</translation>
+        <translation>支払いリクエストのラベル</translation>
     </message>
     <message>
         <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the MonetaryUnit network.</source>
@@ -3400,7 +3444,7 @@ To enable AutoMint add &apos;enablezeromint=1&apos; in monetaryunit.conf</source
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation>アドレス帳へ追加するため、ラベルを入力してください。</translation>
+        <translation>アドレス帳に登録する際のラベルを入力して下さい</translation>
     </message>
 </context>
 <context>
@@ -6181,6 +6225,223 @@ Please be patient after clicking import.</source>
     <message>
         <source>Sign with only private keys (Not Recommened)</source>
         <translation>プライベートキーのみで署名(非推奨)</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalList</name>
+    <message>
+        <source>Enter proposal name</source>
+        <translation>予算案名を入力</translation>
+    </message>
+    <message>
+        <source>Min amount</source>
+        <translation>最小枚数</translation>
+    </message>
+    <message>
+        <source>Start Block</source>
+        <translation>開始ブロック</translation>
+    </message>
+    <message>
+        <source>End Block</source>
+        <translation>終了ブロック</translation>
+    </message>
+    <message>
+        <source>Min yes votes</source>
+        <translation>最小賛成投票数</translation>
+    </message>
+    <message>
+        <source>Min no votes</source>
+        <translation>最小反対投票数</translation>
+    </message>
+    <message>
+        <source>Min abstain votes</source>
+        <translation>最小保留投票数</translation>
+    </message>
+    <message>
+        <source>Min votes needed</source>
+        <translation>最小投票必要数</translation>
+    </message>
+    <message>
+        <source>Proposals</source>
+        <translation>予算案</translation>
+    </message>
+    <message>
+        <source>Vote Yes</source>
+        <translation>賛成に投票</translation>
+    </message>
+    <message>
+        <source>Vote Yes on the selected proposal</source>
+        <translation>選択した予算案に賛成する</translation>
+    </message>
+    <message>
+        <source>Vote Abstain</source>
+        <translation>保留に投票</translation>
+    </message>
+    <message>
+        <source>Vote Abstain on the selected proposal</source>
+        <translation>選択した予算案を保留する</translation>
+    </message>
+    <message>
+        <source>Vote No</source>
+        <translation>反対に投票</translation>
+    </message>
+    <message>
+        <source>Vote No on the selected proposal</source>
+        <translation>選択した予算案に反対する</translation>
+    </message>
+    <message>
+        <source>Vote yes</source>
+        <translation>賛成に投票</translation>
+    </message>
+    <message>
+        <source>Vote abstain</source>
+        <translation>保留に投票</translation>
+    </message>
+    <message>
+        <source>Vote no</source>
+        <translation>反対に投票</translation>
+    </message>
+    <message>
+        <source>Visit proposal website</source>
+        <translation>予算案のウェブサイトを閲覧</translation>
+    </message>
+    <message>
+        <source>List will be updated in %1 %2</source>
+        <translation>%1 %2中にリストは更新されます</translation>
+    </message>
+    <message>
+        <source>List will be updated in 0 second(s)</source>
+        <translation>リストは 0 秒以内に更新されます</translation>
+    </message>
+    <message>
+        <source>Confirm vote</source>
+        <translation>投票の確認</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to vote &lt;strong&gt;%1&lt;/strong&gt; on the proposal &lt;strong&gt;%2&lt;/strong&gt;?</source>
+        <translation>予算案 &lt;strong&gt;%2&lt;/strong&gt;において&lt;strong&gt;%1&lt;/strong&gt;に投票しますか?</translation>
+    </message>
+    <message>
+        <source>Voting</source>
+        <translation>投票中</translation>
+    </message>
+    <message>
+        <source>You voted %1 %2 time(s) successfully and failed %3 time(s) on %4</source>
+        <translation>予算案%4 で %1 に%2 回投票成功し、%3 回投票失敗しました</translation>
+    </message>
+    <message>
+        <source>minute(s)</source>
+        <translation>分</translation>
+    </message>
+    <message>
+        <source>second(s)</source>
+        <translation>秒</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalTableModel</name>
+    <message>
+        <source>Proposal</source>
+        <translation>予算案</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>枚数</translation>
+    </message>
+    <message>
+        <source>Start Block</source>
+        <translation>開始ブロック</translation>
+    </message>
+    <message>
+        <source>End Block</source>
+        <translation>終了ブロック</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>賛成</translation>
+    </message>
+    <message>
+        <source>No</source>
+        <translation>反対</translation>
+    </message>
+    <message>
+        <source>Abstain</source>
+        <translation>保留</translation>
+    </message>
+    <message>
+        <source>Votes Needed</source>
+        <translation>必要投票数</translation>
+    </message>
+    <message>
+        <source>Proposal name</source>
+        <translation>予算案名</translation>
+    </message>
+    <message>
+        <source>Date and time that the proposal starts</source>
+        <translation>予算案の執行開始ブロック</translation>
+    </message>
+    <message>
+        <source>Date and time that the proposal ends</source>
+        <translation>予算案の執行終了ブロック</translation>
+    </message>
+    <message>
+        <source>Obtained yes votes</source>
+        <translation>賛成投票数を取得</translation>
+    </message>
+    <message>
+        <source>Obtained no votes</source>
+        <translation>反対投票数を取得</translation>
+    </message>
+    <message>
+        <source>Obtained abstain votes</source>
+        <translation>保留投票数を取得</translation>
+    </message>
+    <message>
+        <source>Proposed amount</source>
+        <translation>予算案の要求枚数</translation>
+    </message>
+    <message>
+        <source>Current votes needed to pass</source>
+        <translation>承認に必要な投票数</translation>
+    </message>
+</context>
+<context>
+    <name>ConfigureMasternodePage</name>
+    <message>
+        <source>New Masternode Alias</source>
+        <translation>新規マスターノードの設定</translation>
+    </message>
+    <message>
+        <source>Edit Masternode Alias</source>
+        <translation>既存マスターノードの設定</translation>
+    </message>
+    <message>
+        <source>&amp;Alias Name</source>
+        <translation>&amp;MNの名前</translation>
+    </message>
+    <message>
+        <source>&amp;VPS IP</source>
+        <translation>&amp;VPSのIP</translation>
+    </message>
+    <message>
+        <source>&amp;Priv Key</source>
+        <translation>&amp;Priv キー</translation>
+    </message>
+    <message>
+        <source>&amp;Output</source>
+        <translation>&amp;アウトプットTX</translation>
+    </message>
+    <message>
+        <source>&amp;Output ID</source>
+        <translation>&amp;アウトプットID</translation>
+    </message>
+    <message>
+        <source>&amp;AutoFill PrivKey</source>
+        <translation>&amp;Privキーを自動挿入</translation>
+    </message>
+    <message>
+        <source>&amp;AutoFill Outputs</source>
+        <translation>&amp;アウトプットを自動挿入</translation>
     </message>
 </context>
 </TS>
