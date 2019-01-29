@@ -63,6 +63,7 @@ using namespace boost;
 #define SPORK_19_SEGWIT_ON_COINBASE_DEFAULT 4070908800      //OFF
 
 class CSporkMessage;
+class CSporkManager;
 
 extern std::map<uint256, CSporkMessage> mapSporks;
 extern std::map<int, CSporkMessage> mapSporksActive;
