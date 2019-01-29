@@ -4914,7 +4914,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         // MonetaryUnit: We use certain sporks during IBD, so check to see if they are
         // available. If not, ask the first peer connected for them.
-        bool fMissingSporks = !pSporkDB->SporkExists(SPORK_17_SEGWIT_ACTIVATION_DEFAULT);
+        bool fMissingSporks = !pSporkDB->SporkExists(SPORK_17_SEGWIT_ACTIVATION);
 
         if (fMissingSporks || !fRequestedSporksIDB){
             LogPrintf("asking peer for sporks\n");
