@@ -2293,7 +2293,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         if (!pblocktree->AddAddrIndex(vPosAddrid))
             return state.Error("Failed to write address index");
     
-    // add new entries
+        // add new entries
     for (const CTransaction tx: block.vtx) {
         if (tx.IsCoinBase())
             continue;
