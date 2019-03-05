@@ -188,9 +188,9 @@ QT_TRANSLATE_NOOP("bold-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("bold-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 500000 BOLD."),
+"transaction that are not equal 150000 BOLD."),
 QT_TRANSLATE_NOOP("bold-core", ""
-"Unable to locate enough funds for this transaction that are not equal 500000 "
+"Unable to locate enough funds for this transaction that are not equal 150000 "
 "BOLD."),
 QT_TRANSLATE_NOOP("bold-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "

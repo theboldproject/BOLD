@@ -31,11 +31,11 @@ CAmount GetBudgetSystemCollateralAmount(int nHeight) {
 
 int GetBudgetPaymentCycleBlocks()
 {
-    // Amount of blocks in a 14 day period of time (using 40 seconds per block) = (14*24*60*60/40)
-    if (Params().NetworkID() == CBaseChainParams::MAIN) return 30240;
+    // Amount of blocks in a 30 day period of time (using 60 seconds per block) = (30*24*60*60/60)
+    if (Params().NetworkID() == CBaseChainParams::MAIN) return 43200;
     
     //for testing purposes
-    return 216; //ten times per day
+    return 144; //ten times per day
 }
 
 bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, std::string& strError, int64_t& nTime, int& nConf, bool fBudgetFinalization)
@@ -166,7 +166,7 @@ void CBudgetManager::SubmitFinalBudget()
     }
  
     // Submit final budget during the last 2 days (4,320 blocks) before payment for Mainnet, about 9 minutes (9 blocks) for Testnet
-    int finalizationWindow = ((GetBudgetPaymentCycleBlocks() / 14) * 2);
+    int finalizationWindow = ((GetBudgetPaymentCycleBlocks() / 30) * 2);
 
     if (Params().NetworkID() == CBaseChainParams::TESTNET) {
         // NOTE: 9 blocks for testnet is way to short to have any masternode submit an automatic vote on the finalized(!) budget,
@@ -909,8 +909,8 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
         return ((nSubsidy / 100) * 10) * 146;
     }
 
-    if (nHeight > 200 && nHeight <= 96514012) {
-        return 4 * COIN * 2160 * 14;
+    if (nHeight > 10000 && nHeight <= 83259746) { //budget available after block 10000 - about 1 week after wallet release
+        return 6 * COIN * 1440 * 30;
     }
     return 0;
 }
@@ -932,7 +932,7 @@ void CBudgetManager::NewBlock()
     // incremental sync with our peers
     if (masternodeSync.IsSynced()) {
         LogPrint("mnbudget","CBudgetManager::NewBlock - incremental sync started\n");
-        if (chainActive.Height() % 2160 == rand() % 2160) {
+        if (chainActive.Height() % 1440 == rand() % 1440) {
             ClearSeen();
             ResetSync();
         }

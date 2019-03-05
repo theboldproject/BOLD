@@ -1,7 +1,7 @@
 Multi masternode config
 =======================
 
-The multi masternode config allows you to control multiple masternodes from a single wallet. The wallet needs to have a valid collateral output of 500000 coins for each masternode. To use this, place a file named masternode.conf in the data directory of your install:
+The multi masternode config allows you to control multiple masternodes from a single wallet. The wallet needs to have a valid collateral output of 150000 coins for each masternode. To use this, place a file named masternode.conf in the data directory of your install:
  * Windows: %APPDATA%\Bold\
  * Mac OS: ~/Library/Application Support/Bold/
  * Unix/Linux: ~/.bold/
@@ -16,7 +16,7 @@ mn3 127.0.0.4:18200 92Da1aYg6sbenP6uwskJgEY2XWB5LwJ7bXRqc3UPeShtHWJDjDv db478e78
 ```
 
 In the example above:
-* the collateral for mn1 consists of transaction 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c, output index 0 has amount 500000
+* the collateral for mn1 consists of transaction 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c, output index 0 has amount 150000
 * masternode 2 will donate 33% of its income
 * masternode 3 will donate 100% of its income
 
