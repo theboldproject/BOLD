@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Bold
+Comment=Bold P2P Cryptocurrency
+Comment[fr]=Bold, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Bold, eşten eşe kriptografik sanal para birimi
+Exec=bold-qt %u
+Terminal=false
+Type=Application
+Icon=bold128
+MimeType=x-scheme-handler/bold;
+Categories=Office;Finance;

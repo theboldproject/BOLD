@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package monetaryunitd/monetaryunit-qt
-for Debian-based Linux systems. If you compile monetaryunitd/monetaryunit-qt yourself, there are some useful files here.
+This directory contains files used to package boldd/bold-qt
+for Debian-based Linux systems. If you compile boldd/bold-qt yourself, there are some useful files here.
 
-## monetaryunit: URI support ##
+## bold: URI support ##
 
 
-monetaryunit-qt.desktop  (Gnome / Open Desktop)
+bold-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install monetaryunit-qt.desktop
+	sudo desktop-file-install bold-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your monetaryunitqt binary to `/usr/bin`
-and the `../../share/pixmaps/monetaryunit128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your boldqt binary to `/usr/bin`
+and the `../../share/pixmaps/bold128.png` to `/usr/share/pixmaps`
 
-monetaryunit-qt.protocol (KDE)
+bold-qt.protocol (KDE)
 
