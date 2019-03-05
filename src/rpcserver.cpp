@@ -265,10 +265,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop MonetaryUnit server.");
+            "\nStop Bold server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "MonetaryUnit server stopping";
+    return "Bold server stopping";
 }
 
 
@@ -351,38 +351,38 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* MonetaryUnit features */
-        {"monetaryunit", "masternode", &masternode, true, true, false},
-        {"monetaryunit", "listmasternodes", &listmasternodes, true, true, false},
-        {"monetaryunit", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
-        {"monetaryunit", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
-        {"monetaryunit", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
-        {"monetaryunit", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"monetaryunit", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"monetaryunit", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"monetaryunit", "masternodedebug", &masternodedebug, true, true, false},
-        {"monetaryunit", "startmasternode", &startmasternode, true, true, false},
-        {"monetaryunit", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"monetaryunit", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"monetaryunit", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"monetaryunit", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"monetaryunit", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"monetaryunit", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"monetaryunit", "mnbudget", &mnbudget, true, true, false},
-        {"monetaryunit", "preparebudget", &preparebudget, true, true, false},
-        {"monetaryunit", "submitbudget", &submitbudget, true, true, false},
-        {"monetaryunit", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"monetaryunit", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"monetaryunit", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"monetaryunit", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"monetaryunit", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"monetaryunit", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"monetaryunit", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"monetaryunit", "checkbudgets", &checkbudgets, true, true, false},
-        {"monetaryunit", "mnsync", &mnsync, true, true, false},
-        {"monetaryunit", "spork", &spork, true, true, false},
-        {"monetaryunit", "getpoolinfo", &getpoolinfo, true, true, false},
-        {"monetaryunit", "makekeypair", &makekeypair, true, true, false},
+        /* Bold features */
+        {"bold", "masternode", &masternode, true, true, false},
+        {"bold", "listmasternodes", &listmasternodes, true, true, false},
+        {"bold", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
+        {"bold", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
+        {"bold", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"bold", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"bold", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"bold", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"bold", "masternodedebug", &masternodedebug, true, true, false},
+        {"bold", "startmasternode", &startmasternode, true, true, false},
+        {"bold", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"bold", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"bold", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"bold", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"bold", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"bold", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"bold", "mnbudget", &mnbudget, true, true, false},
+        {"bold", "preparebudget", &preparebudget, true, true, false},
+        {"bold", "submitbudget", &submitbudget, true, true, false},
+        {"bold", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"bold", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"bold", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"bold", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"bold", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"bold", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"bold", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"bold", "checkbudgets", &checkbudgets, true, true, false},
+        {"bold", "mnsync", &mnsync, true, true, false},
+        {"bold", "spork", &spork, true, true, false},
+        {"bold", "getpoolinfo", &getpoolinfo, true, true, false},
+        {"bold", "makekeypair", &makekeypair, true, true, false},
 #ifdef ENABLE_WALLET
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -598,14 +598,14 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> monetaryunit-cli " + methodname + " " + args + "\n";
+    return "> bold-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:19688/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:18201/\n";
 }
 
 void RPCRegisterTimerInterface(RPCTimerInterface *iface)

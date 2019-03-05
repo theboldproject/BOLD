@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both monetaryunitd and monetaryunit-qt, to make it harder for attackers to
+ * for both boldd and bold-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("MonetaryUnit Core");
+const std::string CLIENT_NAME("Bold Core");
 
 /**
  * Client version number

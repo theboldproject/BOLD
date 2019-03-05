@@ -1,40 +1,40 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
 # Copyright (c) 2018 The Phore developers
-# Copyright (c) 2018 The MonetaryUnit developers
+# Copyright (c) 2018 The Bold developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-bin_PROGRAMS += qt/monetaryunit-qt
+bin_PROGRAMS += qt/bold-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# monetaryunit qt core #
+# bold qt core #
 QT_TS = \
-  qt/locale/monetaryunit_bg.ts \
-  qt/locale/monetaryunit_ca.ts \
-  qt/locale/monetaryunit_cs.ts \
-  qt/locale/monetaryunit_da.ts \
-  qt/locale/monetaryunit_de.ts \
-  qt/locale/monetaryunit_en.ts \
-  qt/locale/monetaryunit_en_US.ts \
-  qt/locale/monetaryunit_es.ts \
-  qt/locale/monetaryunit_fi.ts \
-  qt/locale/monetaryunit_fr_FR.ts \
-  qt/locale/monetaryunit_hr.ts \
-  qt/locale/monetaryunit_it.ts \
-  qt/locale/monetaryunit_ja.ts \
-  qt/locale/monetaryunit_ko_KR.ts \
-  qt/locale/monetaryunit_nl.ts \
-  qt/locale/monetaryunit_pl.ts \
-  qt/locale/monetaryunit_pt.ts \
-  qt/locale/monetaryunit_pt_BR.ts \
-  qt/locale/monetaryunit_ro_RO.ts \
-  qt/locale/monetaryunit_ru.ts \
-  qt/locale/monetaryunit_sk.ts \
-  qt/locale/monetaryunit_sv.ts \
-  qt/locale/monetaryunit_tr.ts \
-  qt/locale/monetaryunit_uk.ts \
-  qt/locale/monetaryunit_zh_CN.ts \
-  qt/locale/monetaryunit_zh_TW.ts
+  qt/locale/bold_bg.ts \
+  qt/locale/bold_ca.ts \
+  qt/locale/bold_cs.ts \
+  qt/locale/bold_da.ts \
+  qt/locale/bold_de.ts \
+  qt/locale/bold_en.ts \
+  qt/locale/bold_en_US.ts \
+  qt/locale/bold_es.ts \
+  qt/locale/bold_fi.ts \
+  qt/locale/bold_fr_FR.ts \
+  qt/locale/bold_hr.ts \
+  qt/locale/bold_it.ts \
+  qt/locale/bold_ja.ts \
+  qt/locale/bold_ko_KR.ts \
+  qt/locale/bold_nl.ts \
+  qt/locale/bold_pl.ts \
+  qt/locale/bold_pt.ts \
+  qt/locale/bold_pt_BR.ts \
+  qt/locale/bold_ro_RO.ts \
+  qt/locale/bold_ru.ts \
+  qt/locale/bold_sk.ts \
+  qt/locale/bold_sv.ts \
+  qt/locale/bold_tr.ts \
+  qt/locale/bold_uk.ts \
+  qt/locale/bold_zh_CN.ts \
+  qt/locale/bold_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -123,16 +123,16 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/monetaryunit.moc \
+  qt/bold.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_monetaryunit.cpp
-QT_QRC = qt/monetaryunit.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_monetaryunit_locale.cpp
-QT_QRC_LOCALE = qt/monetaryunit_locale.qrc
+QT_QRC_CPP = qt/qrc_bold.cpp
+QT_QRC = qt/bold.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_bold_locale.cpp
+QT_QRC_LOCALE = qt/bold_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -258,12 +258,12 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_monetaryunit.png \
-  qt/res/icons/unit_mmonetaryunit.png \
-  qt/res/icons/unit_umonetaryunit.png \
-  qt/res/icons/unit_tmonetaryunit.png \
-  qt/res/icons/unit_tmmonetaryunit.png \
-  qt/res/icons/unit_tumonetaryunit.png
+  qt/res/icons/unit_bold.png \
+  qt/res/icons/unit_mbold.png \
+  qt/res/icons/unit_ubold.png \
+  qt/res/icons/unit_tbold.png \
+  qt/res/icons/unit_tmbold.png \
+  qt/res/icons/unit_tubold.png
 
 BITCOIN_QT_CPP = \
   qt/bantablemodel.cpp \
@@ -341,7 +341,7 @@ RES_IMAGES = \
   qt/res/images/about.png \
   qt/res/images/splash.png \
   qt/res/images/splash_testnet.png \
-  qt/res/images/monetaryunit_logo_horizontal.png \
+  qt/res/images/bold_logo_horizontal.png \
   qt/res/images/downArrow_dark.png \
   qt/res/images/downArrow_small_dark.png \
   qt/res/images/downArrow_small.png \
@@ -359,7 +359,7 @@ RES_CSS = \
 
 RES_MOVIES = $(wildcard $(srcdir)/qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/monetaryunit-qt-res.rc
+BITCOIN_RC = qt/res/bold-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms
@@ -381,72 +381,72 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_monetaryunit_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_bold_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# monetaryunit-qt binary #
-qt_monetaryunit_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# bold-qt binary #
+qt_bold_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_monetaryunit_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_bold_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 qt_bitcoin_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_monetaryunit_qt_SOURCES = qt/monetaryunit.cpp
+qt_bold_qt_SOURCES = qt/bold.cpp
 if TARGET_DARWIN
-  qt_monetaryunit_qt_SOURCES += $(BITCOIN_MM)
+  qt_bold_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_monetaryunit_qt_SOURCES += $(BITCOIN_RC)
+  qt_bold_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_monetaryunit_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_bold_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_monetaryunit_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_bold_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_monetaryunit_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_bold_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_monetaryunit_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_bold_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_monetaryunit_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_monetaryunit_qt_LIBTOOLFLAGS = --tag CXX
+qt_bold_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_bold_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-$(srcdir)/qt/monetaryunitstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES) $(libbitcoin_zmq_a_SOURCES) $(libbitcoin_util_a_SOURCES)
+$(srcdir)/qt/boldstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES) $(libbitcoin_zmq_a_SOURCES) $(libbitcoin_util_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: $(srcdir)/qt/monetaryunitstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: $(srcdir)/qt/boldstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/monetaryunit_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/bold_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@cp -f $< $(@D)/temp_$(<F)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name monetaryunit_locale $(@D)/temp_$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bold_locale $(@D)/temp_$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 	@rm $(@D)/temp_$(<F)
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name monetaryunit $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bold $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
-CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_monetaryunit_locale.qrc
+CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/temp_bold_locale.qrc
 
 CLEANFILES += $(CLEAN_QT)
 
-monetaryunit_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_monetaryunit_qt_OBJECTS) qt/monetaryunit-qt$(EXEEXT) $(LIBBITCOINQT)
+bold_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_bold_qt_OBJECTS) qt/bold-qt$(EXEEXT) $(LIBBITCOINQT)
 
-monetaryunit_qt : qt/monetaryunit-qt$(EXEEXT)
+bold_qt : qt/bold-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef MONETARYUNIT_CSPORKDB_H
-#define MONETARYUNIT_CSPORKDB_H
+#ifndef BOLD_CSPORKDB_H
+#define BOLD_CSPORKDB_H
 
 #include <boost/filesystem/path.hpp>
 #include "leveldbwrapper.h"
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //MONETARYUNIT_CSPORKDB_H
+#endif //BOLD_CSPORKDB_H

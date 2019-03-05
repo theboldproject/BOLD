@@ -1,0 +1,30 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/bold_bg.qm</file>
+        <file alias="ca">locale/bold_ca.qm</file>
+        <file alias="cs">locale/bold_cs.qm</file>
+        <file alias="da">locale/bold_da.qm</file>
+        <file alias="de">locale/bold_de.qm</file>
+        <file alias="en">locale/bold_en.qm</file>
+        <file alias="en_US">locale/bold_en_US.qm</file>
+        <file alias="es">locale/bold_es.qm</file>
+        <file alias="fi">locale/bold_fi.qm</file>
+        <file alias="fr_FR">locale/bold_fr_FR.qm</file>
+        <file alias="hr">locale/bold_hr.qm</file>
+        <file alias="it">locale/bold_it.qm</file>
+        <file alias="ja">locale/bold_ja.qm</file>
+        <file alias="ko_KR">locale/bold_ko_KR.qm</file>
+        <file alias="nl">locale/bold_nl.qm</file>
+        <file alias="pl">locale/bold_pl.qm</file>
+        <file alias="pt">locale/bold_pt.qm</file>
+        <file alias="pt_BR">locale/bold_pt_BR.qm</file>
+        <file alias="ro_RO">locale/bold_ro_RO.qm</file>
+        <file alias="ru">locale/bold_ru.qm</file>
+        <file alias="sk">locale/bold_sk.qm</file>
+        <file alias="sv">locale/bold_sv.qm</file>
+        <file alias="tr">locale/bold_tr.qm</file>
+        <file alias="uk">locale/bold_uk.qm</file>
+        <file alias="zh_CN">locale/bold_zh_CN.qm</file>
+        <file alias="zh_TW">locale/bold_zh_TW.qm</file>
+    </qresource>
+</RCC>

@@ -11,9 +11,9 @@
 static const int MODEL_UPDATE_DELAY = 1000;
 
 /* AskPassphraseDialog -- Maximum passphrase length */
-static const int MAX_PASSMUEASE_SIZE = 1024;
+static const int MAX_PASSBOLDASE_SIZE = 1024;
 
-/* MonetaryUnit GUI -- Size of icons in status bar */
+/* Bold GUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;
 
 static const bool DEFAULT_SPLASHSCREEN = true;
@@ -50,9 +50,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "MonetaryUnit"
-#define QAPP_ORG_DOMAIN "monetaryunit.org"
-#define QAPP_APP_NAME_DEFAULT "MonetaryUnit-Qt"
-#define QAPP_APP_NAME_TESTNET "MonetaryUnit-Qt-testnet"
+#define QAPP_ORG_NAME "Bold"
+#define QAPP_ORG_DOMAIN "bold.org"
+#define QAPP_APP_NAME_DEFAULT "Bold-Qt"
+#define QAPP_APP_NAME_TESTNET "Bold-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

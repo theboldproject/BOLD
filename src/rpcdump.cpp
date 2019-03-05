@@ -82,10 +82,10 @@ UniValue importprivkey(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 3)
         throw runtime_error(
-            "importprivkey \"monetaryunitprivkey\" ( \"label\" rescan )\n"
+            "importprivkey \"boldprivkey\" ( \"label\" rescan )\n"
             "\nAdds a private key (as returned by dumpprivkey) to your wallet.\n"
             "\nArguments:\n"
-            "1. \"monetaryunitprivkey\"   (string, required) The private key (see dumpprivkey)\n"
+            "1. \"boldprivkey\"   (string, required) The private key (see dumpprivkey)\n"
             "2. \"label\"            (string, optional, default=\"\") An optional label\n"
             "3. rescan               (boolean, optional, default=true) Rescan the wallet for transactions\n"
             "\nNote: This call can take minutes to complete if rescan is true.\n"
@@ -230,7 +230,7 @@ UniValue importaddress(const UniValue& params, bool fHelp)
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Cannot use the p2sh flag with an address - use a script instead");
         ImportAddress(DecodeDestination(params[0].get_str()), strLabel);
     } else {
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid MonetaryUnit address or script");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bold address or script");
     }
 
     if (fRescan)
@@ -395,11 +395,11 @@ UniValue dumpprivkey(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpprivkey \"monetaryunitaddress\"\n"
-            "\nReveals the private key corresponding to 'monetaryunitaddress'.\n"
+            "dumpprivkey \"boldaddress\"\n"
+            "\nReveals the private key corresponding to 'boldaddress'.\n"
             "Then the importprivkey can be used with this output\n"
             "\nArguments:\n"
-            "1. \"monetaryunitaddress\"   (string, required) The monetaryunit address for the private key\n"
+            "1. \"boldaddress\"   (string, required) The bold address for the private key\n"
             "\nResult:\n"
             "\"key\"                (string) The private key\n"
             "\nExamples:\n"
@@ -414,7 +414,7 @@ UniValue dumpprivkey(const UniValue& params, bool fHelp)
 
     string strAddress = params[0].get_str();
     if (!IsValidDestinationString(strAddress))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid MonetaryUnit address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bold address");
     const CTxDestination dest = DecodeDestination(strAddress);
     auto keyid = GetKeyForDestination(*pwalletMain, dest);
     if (keyid.IsNull()) {
@@ -434,9 +434,9 @@ UniValue dumpwallet(const UniValue& params, bool fHelp)
             "dumpwallet \"filename\"\n"
             "\nThis command has been deprecated and replace with dumpallprivatekeys.\n"
             "\nSCAM WARNING: If anyone asks you to run this command and send them the file,\n"
-            "they will have FULL ACCESS to STEAL your MonetaryUnit. Giving this file to someone\n"
-            "is the same thing as giving them all of the MonetaryUnit in your wallet! Never send\n"
-            "this file to ANYONE that you do not trust with all of your MonetaryUnit!!!\n"
+            "they will have FULL ACCESS to STEAL your Bold. Giving this file to someone\n"
+            "is the same thing as giving them all of the Bold in your wallet! Never send\n"
+            "this file to ANYONE that you do not trust with all of your Bold!!!\n"
             "\nArguments:\n"
             "1. \"filename\"    (string, required) The filename\n"
             "\nExamples:\n" +
@@ -465,7 +465,7 @@ UniValue dumpwallet(const UniValue& params, bool fHelp)
     std::sort(vKeyBirth.begin(), vKeyBirth.end());
 
     // produce output
-    file << strprintf("# Wallet dump created by MonetaryUnit %s (%s)\n", CLIENT_BUILD, CLIENT_DATE);
+    file << strprintf("# Wallet dump created by Bold %s (%s)\n", CLIENT_BUILD, CLIENT_DATE);
     file << strprintf("# * Created on %s\n", EncodeDumpTime(GetTime()));
     file << strprintf("# * Best block at time of backup was %i (%s),\n", chainActive.Height(), chainActive.Tip()->GetBlockHash().ToString());
     file << strprintf("#   mined on %s\n", EncodeDumpTime(chainActive.Tip()->GetBlockTime()));
@@ -498,9 +498,9 @@ UniValue dumpallprivatekeys(const UniValue& params, bool fHelp)
             "dumpallprivatekeys \"filename\"\n"
             "\nDumps all wallet private keys in an unencrypted, human-readable format.\n"
             "\nSCAM WARNING: If anyone asks you to run this command and send them the file,\n"
-            "they will have FULL ACCESS to STEAL your MonetaryUnit. Giving this file to someone\n"
-            "is the same thing as giving them all of the MonetaryUnit in your wallet! Never send\n"
-            "this file to ANYONE that you do not trust with all of your MonetaryUnit!!!\n"
+            "they will have FULL ACCESS to STEAL your Bold. Giving this file to someone\n"
+            "is the same thing as giving them all of the Bold in your wallet! Never send\n"
+            "this file to ANYONE that you do not trust with all of your Bold!!!\n"
            "\nArguments:\n"
             "1. \"filename\"    (string, required) The filename\n"
             "\nExamples:\n" +
@@ -529,7 +529,7 @@ UniValue dumpallprivatekeys(const UniValue& params, bool fHelp)
     std::sort(vKeyBirth.begin(), vKeyBirth.end());
 
     // produce output
-    file << strprintf("# Wallet private key dump file created by MonetaryUnit %s (%s)\n", CLIENT_BUILD, CLIENT_DATE);
+    file << strprintf("# Wallet private key dump file created by Bold %s (%s)\n", CLIENT_BUILD, CLIENT_DATE);
     file << strprintf("# * Created on %s\n", EncodeDumpTime(GetTime()));
     file << strprintf("# * Best block at time of backup was %i (%s),\n", chainActive.Height(), chainActive.Tip()->GetBlockHash().ToString());
     file << strprintf("#   mined on %s\n", EncodeDumpTime(chainActive.Tip()->GetBlockTime()));
@@ -559,10 +559,10 @@ UniValue bip38encrypt(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "bip38encrypt \"monetaryunitaddress\"\n"
-            "\nEncrypts a private key corresponding to 'monetaryunitaddress'.\n"
+            "bip38encrypt \"boldaddress\"\n"
+            "\nEncrypts a private key corresponding to 'boldaddress'.\n"
             "\nArguments:\n"
-            "1. \"monetaryunitaddress\"   (string, required) The monetaryunit address for the private key (you must hold the key already)\n"
+            "1. \"boldaddress\"   (string, required) The bold address for the private key (you must hold the key already)\n"
             "2. \"passphrase\"   (string, required) The passphrase you want the private key to be encrypted with - Valid special chars: !#$%&'()*+,-./:;<=>?`{|}~ \n"
             "\nResult:\n"
             "\"key\"                (string) The encrypted private key\n"
@@ -576,7 +576,7 @@ UniValue bip38encrypt(const UniValue& params, bool fHelp)
     string strPassphrase = params[1].get_str();
 
     if (!IsValidDestinationString(strAddress))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid MonetaryUnit address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bold address");
     CTxDestination address = DecodeDestination(strAddress);
     CKeyID *keyID = boost::get<CKeyID>(&address);
     if (!keyID)
@@ -599,7 +599,7 @@ UniValue bip38decrypt(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "bip38decrypt \"monetaryunitaddress\"\n"
+            "bip38decrypt \"boldaddress\"\n"
             "\nDecrypts and then imports password protected private key.\n"
             "\nArguments:\n"
             "1. \"encryptedkey\"   (string, required) The encrypted private key\n"

@@ -13,7 +13,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/monetaryunit-config.h"
+#include "config/bold-config.h"
 #endif
 
 #include "compat.h"
@@ -29,7 +29,7 @@
 #include <boost/filesystem/path.hpp>
 #include <boost/thread/exceptions.hpp>
 
-//MonetaryUnit only features
+//Bold only features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
@@ -37,7 +37,7 @@ extern bool fEnableSwiftTX;
 extern int nSwiftTXDepth;
 extern const int64_t AUTOMINT_DELAY;
 extern int nPreferredDenom;
-extern int nAnonymizeMonetaryUnitAmount;
+extern int nAnonymizeBoldAmount;
 extern int nLiquidityProvider;
 extern int64_t enforceMasternodePaymentsTime;
 extern std::string strMasterNodeAddr;
@@ -210,7 +210,7 @@ void RenameThread(const char* name);
 template <typename Callable>
 void TraceThread(const char* name, Callable func)
 {
-    std::string s = strprintf("monetaryunit-%s", name);
+    std::string s = strprintf("bold-%s", name);
     RenameThread(s.c_str());
     try {
         LogPrintf("%s thread start\n", name);

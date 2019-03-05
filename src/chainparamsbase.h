@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between monetaryunit-cli and monetaryunitd)
- * of a given instance of the MonetaryUnit system.
+ * CBaseChainParams defines the base parameters (shared between bold-cli and boldd)
+ * of a given instance of the Bold system.
  */
 class CBaseChainParams
 {

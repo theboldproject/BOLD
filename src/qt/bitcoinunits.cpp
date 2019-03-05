@@ -19,18 +19,18 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(MUE);
-    unitlist.append(mMUE);
-    unitlist.append(uMUE);
+    unitlist.append(BOLD);
+    unitlist.append(mBOLD);
+    unitlist.append(uBOLD);
     return unitlist;
 }
 
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case MUE:
-    case mMUE:
-    case uMUE:
+    case BOLD:
+    case mBOLD:
+    case uBOLD:
         return true;
     default:
         return false;
@@ -40,12 +40,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case MUE:
-        return QString("monetaryunit");
-    case mMUE:
-        return QString("mmonetaryunit");
-    case uMUE:
-        return QString::fromUtf8("umonetaryunit");
+    case BOLD:
+        return QString("bold");
+    case mBOLD:
+        return QString("mbold");
+    case uBOLD:
+        return QString::fromUtf8("ubold");
     default:
         return QString("???");
     }
@@ -55,23 +55,23 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case MUE:
-            return QString("MUE");
-        case mMUE:
-            return QString("mMUE");
-        case uMUE:
-            return QString::fromUtf8("μMUE");
+        case BOLD:
+            return QString("BOLD");
+        case mBOLD:
+            return QString("mBOLD");
+        case uBOLD:
+            return QString::fromUtf8("μBOLD");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case MUE:
-            return QString("tMUE");
-        case mMUE:
-            return QString("mtMUE");
-        case uMUE:
-            return QString::fromUtf8("μtMUE");
+        case BOLD:
+            return QString("tBOLD");
+        case mBOLD:
+            return QString("mtBOLD");
+        case uBOLD:
+            return QString::fromUtf8("μtBOLD");
         default:
             return QString("???");
         }
@@ -82,23 +82,23 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case MUE:
-            return QString("MUE");
-        case mMUE:
-            return QString("Milli-MUE (1 / 1" THIN_SP_UTF8 "000)");
-        case uMUE:
-            return QString("Micro-MUE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case BOLD:
+            return QString("BOLD");
+        case mBOLD:
+            return QString("Milli-BOLD (1 / 1" THIN_SP_UTF8 "000)");
+        case uBOLD:
+            return QString("Micro-BOLD (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case MUE:
-            return QString("TestMUEs");
-        case mMUE:
-            return QString("Milli-TestMUE (1 / 1" THIN_SP_UTF8 "000)");
-        case uMUE:
-            return QString("Micro-TestMUE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+        case BOLD:
+            return QString("TestBOLDs");
+        case mBOLD:
+            return QString("Milli-TestBOLD (1 / 1" THIN_SP_UTF8 "000)");
+        case uBOLD:
+            return QString("Micro-TestBOLD (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
@@ -108,11 +108,11 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case MUE:
+    case BOLD:
         return 100000000;
-    case mMUE:
+    case mBOLD:
         return 100000;
-    case uMUE:
+    case uBOLD:
         return 100;
     default:
         return 100000000;
@@ -122,11 +122,11 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case MUE:
+    case BOLD:
         return 8;
-    case mMUE:
+    case mBOLD:
         return 5;
-    case uMUE:
+    case uBOLD:
         return 2;
     default:
         return 0;

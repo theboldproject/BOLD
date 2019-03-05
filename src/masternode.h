@@ -19,8 +19,10 @@
 #define MASTERNODE_MIN_MNB_SECONDS (5 * 60)
 #define MASTERNODE_PING_SECONDS (5 * 60)
 #define MASTERNODE_EXPIRATION_SECONDS (120 * 60)
-#define MASTERNODE_REMOVAL_SECONDS (130 * 60)
+#define MASTERNODE_REMOVAL_SECONDS (180 * 60)
 #define MASTERNODE_CHECK_SECONDS 5
+
+#define MASTERNODE_COLLATERAL 150000
 
 using namespace std;
 
@@ -101,7 +103,7 @@ public:
 };
 
 //
-// The Masternode Class. For managing the Obfuscation process. It contains the input of the 500000 MUE, signature to prove
+// The Masternode Class. For managing the Obfuscation process. It contains the input of the BOLD collateral, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
 class CMasternode

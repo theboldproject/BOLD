@@ -1,40 +1,40 @@
-MonetaryUnit Core
+Bold Core
 =====================
 
 Setup
 ---------------------
-[MonetaryUnit Core](http://monetaryunit.org/wallet) is the original MonetaryUnit client and it builds the backbone of the network. However, it downloads and stores the entire history of MonetaryUnit transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Bold Core](http://bold.org/wallet) is the original Bold client and it builds the backbone of the network. However, it downloads and stores the entire history of Bold transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run MonetaryUnit on your native platform.
+The following are some helpful notes on how to run Bold on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/monetaryunit-qt (GUI, 32-bit) or bin/32/monetaryunitd (headless, 32-bit)
-- bin/64/monetaryunit-qt (GUI, 64-bit) or bin/64/monetaryunitd (headless, 64-bit)
+- bin/32/bold-qt (GUI, 32-bit) or bin/32/boldd (headless, 32-bit)
+- bin/64/bold-qt (GUI, 64-bit) or bin/64/boldd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run monetaryunit-qt.exe.
+Unpack the files into a directory, and then run bold-qt.exe.
 
 ### OSX
 
-Drag MonetaryUnit-Qt to your applications folder, and then run MonetaryUnit-Qt.
+Drag Bold-Qt to your applications folder, and then run Bold-Qt.
 
 ### Need Help?
 
-* See the documentation at the [MonetaryUnit Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [Bold Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [MonetaryUnit Forum](http://forum.monetaryunit.org/).
-* Join one of our Slack groups [MonetaryUnit Slack Groups](https://monetaryunit.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [Bold Forum](http://forum.bold.org/).
+* Join one of our Slack groups [Bold Slack Groups](https://bold.org/slack-logins/).
 * Join our Discord server [Discord Server](https://discord.gg/dTRhamf)
 
 Building
 ---------------------
-The following are developer notes on how to build MonetaryUnit on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Bold on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -42,7 +42,7 @@ The following are developer notes on how to build MonetaryUnit on your native pl
 
 Development
 ---------------------
-The MonetaryUnit repo's [root README](https://github.com/monetaryunitproject/MonetaryUnit/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Bold repo's [root README](https://github.com/boldproject/Bold/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -56,8 +56,8 @@ The MonetaryUnit repo's [root README](https://github.com/monetaryunitproject/Mon
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [MonetaryUnit](http://forum.monetaryunit.org/) forum.
-* Join the [MonetaryUnit-Dev](https://monetaryunit-dev.slack.com/) Slack group ([Sign-Up](https://monetaryunit-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Bold](http://forum.bold.org/) forum.
+* Join the [Bold-Dev](https://bold-dev.slack.com/) Slack group ([Sign-Up](https://bold-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
