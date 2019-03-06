@@ -406,7 +406,7 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Bold: 1 day
         nTargetSpacing = 1 * 60;        // Bold: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1551832100;
+        genesis.nTime = 1551831100;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 23457;
         nMaturity = 0;
