@@ -276,7 +276,7 @@ public:
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1551832100;
-        genesis.nNonce = 1832777;
+        genesis.nNonce = 1;
 		
 		//==========================
 
@@ -408,7 +408,7 @@ public:
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1551832100;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2445646;
+        genesis.nNonce = 23457;
         nMaturity = 0;
         nLastPOWBlock = 999999999; // PoS complicates Regtest because of timing issues
         nDefaultPort = 19205;
