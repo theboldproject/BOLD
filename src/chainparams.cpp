@@ -60,7 +60,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1551771273, // * UNIX timestamp of last checkpoint block
+    1551833100, // * UNIX timestamp of last checkpoint block
     0,     // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
@@ -70,7 +70,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256(""));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1551771173,
+    1551832100,
     0,
     250};
 
@@ -78,7 +78,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256(""));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1551771173,
+    1551832100,
     0,
     100};
 
@@ -138,7 +138,7 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1549849138;
+        genesis.nTime = 1551833100;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 786313;
 		
@@ -275,7 +275,7 @@ public:
         nLastPOWBlock = 400;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1549848138;
+        genesis.nTime = 1551832100;
         genesis.nNonce = 1832777;
 		
 		//==========================
@@ -406,7 +406,7 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Bold: 1 day
         nTargetSpacing = 1 * 60;        // Bold: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1549848138;
+        genesis.nTime = 1551832100;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 2445646;
         nMaturity = 0;
