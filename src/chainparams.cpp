@@ -271,7 +271,7 @@ public:
         nTargetSpacing = 1 * 60;  // Bold: 1 minute
         nMaturity = 15;
         nMasternodeCountDrift = 4;
-        nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
+        nModifierUpdateBlock = 1; 
         nMaxMoneyOut = 1000000000 * COIN;
         nLastPOWBlock = 200;
 
