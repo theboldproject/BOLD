@@ -1,8 +1,8 @@
 Source: bold
 Section: utils
 Priority: optional
-Maintainer: Julian Meyer <julian@bold.io>
-Uploaders: Julian Meyer <julian@bold.io>
+Maintainer: Cryptotron <cryptotronn@boldproject.io>
+Uploaders: Cryptotron <cryptotron@boldproject.io>
 Build-Depends: debhelper,
  devscripts,
  automake,
