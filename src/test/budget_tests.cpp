@@ -21,7 +21,7 @@ BOOST_AUTO_TEST_CASE(budget_value)
 {
     SelectParams(CBaseChainParams::MAIN);
     int nHeightTest = 100;
-    CheckBudgetValue(nHeightTest, "mainnet", 30240*COIN);
+    CheckBudgetValue(nHeightTest, "mainnet", 43200*COIN);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -26,7 +26,7 @@ std::vector<CFinalizedBudgetBroadcast> vecImmatureFinalizedBudgets;
 int nSubmittedFinalBudget;
 
 CAmount GetBudgetSystemCollateralAmount(int nHeight) {
-    return 500 * COIN;
+    return 25 * COIN;
 }
 
 int GetBudgetPaymentCycleBlocks()

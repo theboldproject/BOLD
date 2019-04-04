@@ -1636,24 +1636,7 @@ int64_t GetBlockValue(int nHeight)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = 0;
-
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight <= Params().LAST_POW_BLOCK()) {
-		    ret = 0;
-        } else {
-            ret = blockValue / 2;
-        }
-    }
-
-    // No masternode payments during Proof of Work phase
-    if (nHeight <= Params().LAST_POW_BLOCK()) {
-        ret = 0;
-    } else {
-        // 50/50 split of staking reward and masternode reward
-        ret = blockValue / 2;    
-    }
-
+    int64_t ret = blockValue / 2;
     return ret;
 }
 

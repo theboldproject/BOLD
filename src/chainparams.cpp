@@ -106,10 +106,10 @@ public:
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
-        nMinerThreads = 1;
+        nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Bold: 1 day
         nTargetSpacing = 1 * 60;  // Bold: 60 seconds
-        nMaturity = 100;
+        nMaturity = 50;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 5000000000 * COIN;
 
@@ -218,7 +218,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x01)(0xbF).convert_to_container<std::vector<unsigned char> >();
+        base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x0d)(0xa2).convert_to_container<std::vector<unsigned char> >();
 
         bech32_hrp = "bo";
 
@@ -234,7 +234,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04516fdb52d5d008b400317d8a79d83c85b152dc6f45b593b15fd9c3074bf2719ff4edadf6a4de4964da269ca33db7f804dc5266c2abb36bba5b08837f2efd51f4";
+        strSporkKey = "04615040cee8445d8cdd48e41b72e487e3a1c0065c4727c1700a27a74e16285997b33a6f2b0ee9343442409d67e78f78f48bf925b3b4e21d4a7cf9776787337d3c";
         strSporkKeyTemp = "04d81bc201cf6df0e9a39b21c24000cf5a804949aaf0f352bcf07a5360e54a14bfe1090372fd502dd3646fa7f3aa5083531f8274f9b3891dbbed4b53fe89cb34c5";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 6; // Number of confirmations for the finalization fee
@@ -268,7 +268,7 @@ public:
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Bold: 1 day
-        nTargetSpacing = 1 * 60;  // Bold: 1 minute
+        nTargetSpacing = 1 * 10;  // Bold: 1 minute
         nMaturity = 15;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 1; 
@@ -349,7 +349,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("testnetdns", "testnetdns.bold.org"));
+        vSeeds.push_back(CDNSSeedData("testnetdns", "testnetdns.boldproject.io"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58); // Testnet bold addresses start with 'Q'
@@ -375,7 +375,7 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKeyTemp = "0477daa7cb5666b6d20c00d645f36750f391e3664bc55a278fd6430eabbf87155bdc11820ce5cc11105daded8a348d90b0c9955c23d660ac06ad3cbc9aa36318b2";
-        strSporkKey = "0477daa7cb5666b6d20c00d645f36750f391e3664bc55a278fd6430eabbf87155bdc11820ce5cc11105daded8a348d90b0c9955c23d660ac06ad3cbc9aa36318b2";
+        strSporkKey = "045b99b6c574b5ef03307352c9f8e854a90821c54cc3ca17c0cde061f4334f8a0c76643a329114956402552e69e55c33bed528fc4ba0ed4837c3273175ab7c2c1e";
         strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet

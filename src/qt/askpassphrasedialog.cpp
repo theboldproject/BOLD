@@ -30,9 +30,9 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     ui->passEdit2->setMinimumSize(ui->passEdit2->sizeHint());
     ui->passEdit3->setMinimumSize(ui->passEdit3->sizeHint());
 
-    ui->passEdit1->setMaxLength(MAX_PASSBOLDASE_SIZE);
-    ui->passEdit2->setMaxLength(MAX_PASSBOLDASE_SIZE);
-    ui->passEdit3->setMaxLength(MAX_PASSBOLDASE_SIZE);
+    ui->passEdit1->setMaxLength(MAX_PASSPHRASE_SIZE);
+    ui->passEdit2->setMaxLength(MAX_PASSPHRASE_SIZE);
+    ui->passEdit3->setMaxLength(MAX_PASSPHRASE_SIZE);
 
     // Setup Caps Lock detection.
     ui->passEdit1->installEventFilter(this);
@@ -95,9 +95,9 @@ void AskPassphraseDialog::accept()
     SecureString oldpass, newpass1, newpass2;
     if (!model)
         return;
-    oldpass.reserve(MAX_PASSBOLDASE_SIZE);
-    newpass1.reserve(MAX_PASSBOLDASE_SIZE);
-    newpass2.reserve(MAX_PASSBOLDASE_SIZE);
+    oldpass.reserve(MAX_PASSPHRASE_SIZE);
+    newpass1.reserve(MAX_PASSPHRASE_SIZE);
+    newpass2.reserve(MAX_PASSPHRASE_SIZE);
     // TODO: get rid of this .c_str() by implementing SecureString::operator=(std::string)
     // Alternately, find a way to make this input mlock()'d to begin with.
     oldpass.assign(ui->passEdit1->text().toStdString().c_str());
@@ -121,7 +121,7 @@ void AskPassphraseDialog::accept()
                         "<qt>" +
                             tr("Bold will close now to finish the encryption process. "
                                "Remember that encrypting your wallet cannot fully protect "
-                               "your BOLDs from being stolen by malware infecting your computer.") +
+                               "your BOLD from being stolen by malware infecting your computer.") +
                             "<br><br><b>" +
                             tr("IMPORTANT: Any previous backups you have made of your wallet file "
                                "should be replaced with the newly generated, encrypted wallet file. "
