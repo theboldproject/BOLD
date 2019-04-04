@@ -209,8 +209,8 @@ public:
 		
         // Mainnet --- nonce: 1 time: 1536266133 hash: 0x0b58ed450b3819ca54ab0054c4d220ca4f887d21c9e55d2a333173adf76d987f merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
-        vSeeds.push_back(CDNSSeedData("boldgold", "boldgold.heliumstats.online"));
-		vSeeds.push_back(CDNSSeedData("boldgold2", "boldgold2.heliumstats.online"));
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.boldproject.io"));
+		vSeeds.push_back(CDNSSeedData("seed2", "seed2.boldproject.io"));
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 26); // BOLD addresses start with 'B'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 8); // BOLD script addresses start with '8'
@@ -349,7 +349,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("testnetdns", "testnetdns.boldproject.io"));
+        vSeeds.push_back(CDNSSeedData("testseed", "testseed.boldproject.io"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58); // Testnet bold addresses start with 'Q'
