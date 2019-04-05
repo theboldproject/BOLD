@@ -55,30 +55,30 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (     0, uint256("00000647b672f947267d853b5be6b9773599fa94ed70a4210d6dbd3f80656c9d"));
+    (     0, uint256("00000e5ce2c60eb83f8e2984931c17bd467763a1e7ec6d8a5bf00c5776db7025"));
     
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1551833100, // * UNIX timestamp of last checkpoint block
+    1554367099, // * UNIX timestamp of last checkpoint block
     0,     // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2000        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
-    boost::assign::map_list_of(0, uint256("00000fa533fc7a224bbb1cbcbd8579292f466554f28bcbdb1188f9838d6467ef"));
+    boost::assign::map_list_of(0, uint256("0000050a6607f14c0f30aa738604cedd8608152e3be729477cd509d9c1d5f772"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1551832100,
+    1554366099,
     0,
     250};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
-    boost::assign::map_list_of(0, uint256("00000cca825dd6172161f67da130c10ac5dd1a68fc81c4fcaccd7cf315786ad3"));
+    boost::assign::map_list_of(0, uint256("000004993c18ca5c7555bd9edbc7a693c39792618d616a5f84301a8b8b8ac91b"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1551831100,
+    1554365099,
     0,
     100};
 
@@ -97,8 +97,8 @@ public:
          */
         pchMessageStart[0] = 0x92;
         pchMessageStart[1] = 0xc5;
-        pchMessageStart[2] = 0xf6;
-        pchMessageStart[3] = 0xe1;
+        pchMessageStart[2] = 0xe6;
+        pchMessageStart[3] = 0xd1;
         vAlertPubKey = ParseHex("04659d53bd8f7ad9d34a17281febedac754e5a6eb136142d3a9c6c0ea21b6ed7498ceb3d872eed00ae755f7aeadaeb1d9ab5e1a8f1e7efcd0ddcb39d4623c12790");
         nDefaultPort = 18200;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
@@ -138,12 +138,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1551833100;
+        genesis.nTime = 1554367099;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2642772;
+        genesis.nNonce = 4417337;
 		
-		/*
-		hashGenesisBlock = genesis.GetHash();
+	//=================================================
+	/*
+	hashGenesisBlock = genesis.GetHash();
         if(genesis.GetHash() != uint256("0x"))
         {
         printf("MSearching for genesis block...\n");
@@ -169,11 +170,11 @@ public:
         printf("Mainnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         }
 		
-		*/
+	*/	
 
 //============================================================
 
-		
+	
         hashGenesisBlock = genesis.GetHash();
         if (regenerate) {
             hashGenesisBlock = uint256S("");
@@ -200,7 +201,7 @@ public:
             LogPrintf(" time: %u\n", genesis.nTime);
             LogPrintf(" hash: 0x%s\n", genesis.GetHash().ToString().c_str());
             LogPrintf(" merklehash: 0x%s\n", genesis.hashMerkleRoot.ToString().c_str());
-            assert(hashGenesisBlock == uint256("0x00000647b672f947267d853b5be6b9773599fa94ed70a4210d6dbd3f80656c9d"));
+            assert(hashGenesisBlock == uint256("0x00000e5ce2c60eb83f8e2984931c17bd467763a1e7ec6d8a5bf00c5776db7025"));
             assert(genesis.hashMerkleRoot == uint256("0xb34f5b46eb99e9bd8d68cd759e29e774d5af1757dc23a5b404aeb2a4603c4c27"));
         }
 		
@@ -209,8 +210,8 @@ public:
 		
         // Mainnet --- nonce: 1 time: 1536266133 hash: 0x0b58ed450b3819ca54ab0054c4d220ca4f887d21c9e55d2a333173adf76d987f merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
-        vSeeds.push_back(CDNSSeedData("boldgold", "boldgold.heliumstats.online"));
-		vSeeds.push_back(CDNSSeedData("boldgold2", "boldgold2.heliumstats.online"));
+        vSeeds.push_back(CDNSSeedData("seed1", "seed1.boldproject.io"));
+		vSeeds.push_back(CDNSSeedData("seed2", "seed2.boldproject.io"));
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 26); // BOLD addresses start with 'B'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 8); // BOLD script addresses start with '8'
@@ -259,8 +260,8 @@ public:
         strNetworkID = "test";
         pchMessageStart[0] = 0x48;
         pchMessageStart[1] = 0x76;
-        pchMessageStart[2] = 0x65;
-        pchMessageStart[3] = 0xba;
+        pchMessageStart[2] = 0x35;
+        pchMessageStart[3] = 0xca;
         vAlertPubKey = ParseHex("04d7e13bc896eb07e2db2d7272f5ddfaedfb64b8ed4caa4d917d6e0781b59ca44f8b5d40995622008e40707b47687eebee11cbe3bbaf2348622cc271c7f0d0bd0a");
         nDefaultPort = 19200;
         nEnforceBlockUpgradeMajority = 51;
@@ -276,13 +277,13 @@ public:
         nLastPOWBlock = 200;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1551832100;
-        genesis.nNonce = 559645;
+        genesis.nTime = 1554366099;
+        genesis.nNonce = 1167308;
 		
 		//==========================
 
-		/*
-		hashGenesisBlock = genesis.GetHash();
+	/*
+	hashGenesisBlock = genesis.GetHash();
         if(genesis.GetHash() != uint256("0x"))
         {
         printf("MSearching for genesis block...\n");
@@ -307,10 +308,11 @@ public:
         printf("Testnet block.hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
         printf("Testnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         }
-		*/
+	
+	*/
 		//===================
 		
-		
+	
         hashGenesisBlock = genesis.GetHash();
         if (regenerate) {
             hashGenesisBlock = uint256S("");
@@ -338,10 +340,11 @@ public:
             LogPrintf(" time: %u\n", genesis.nTime);
             LogPrintf(" hash: 0x%s\n", genesis.GetHash().ToString().c_str());
             LogPrintf(" merklehash: 0x%s\n", genesis.hashMerkleRoot.ToString().c_str());
-            assert(hashGenesisBlock == uint256("0x00000fa533fc7a224bbb1cbcbd8579292f466554f28bcbdb1188f9838d6467ef"));
+            assert(hashGenesisBlock == uint256("0x0000050a6607f14c0f30aa738604cedd8608152e3be729477cd509d9c1d5f772"));
             assert(genesis.hashMerkleRoot == uint256("0xb34f5b46eb99e9bd8d68cd759e29e774d5af1757dc23a5b404aeb2a4603c4c27"));
         }
-		
+	
+	
 		//========================
 		
         // Testnet --- nonce: 1 time: 1505224800 hash: 0x7fbf5849b7a8602fecd2d5e4465b3d4f0bfb482b02c87388b925009d14ba7e42 merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
@@ -349,7 +352,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("testnetdns", "testnetdns.boldproject.io"));
+        vSeeds.push_back(CDNSSeedData("testseed", "testseed.boldproject.io"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58); // Testnet bold addresses start with 'Q'
@@ -398,8 +401,8 @@ public:
         networkID = CBaseChainParams::REGTEST;
         pchMessageStart[0] = 0xa2;
         pchMessageStart[1] = 0xcf;
-        pchMessageStart[2] = 0x7e;
-        pchMessageStart[3] = 0xad;
+        pchMessageStart[2] = 0x6e;
+        pchMessageStart[3] = 0xcd;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
@@ -407,17 +410,17 @@ public:
         nTargetTimespan = 24 * 60 * 60; // Bold: 1 day
         nTargetSpacing = 1 * 60;        // Bold: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1551831100;
+        genesis.nTime = 1554365099;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 189161;
+        genesis.nNonce = 796871;
         nMaturity = 0;
         nLastPOWBlock = 999999999; // PoS complicates Regtest because of timing issues
         nDefaultPort = 19205;
 		
 		//=========================
 
-		/*
-		hashGenesisBlock = genesis.GetHash();
+	/*
+	hashGenesisBlock = genesis.GetHash();
         if(genesis.GetHash() != uint256("0x"))
         {
         printf("MSearching for genesis block...\n");
@@ -442,7 +445,8 @@ public:
         printf("Regnet block.hashMerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
         printf("Regnet block.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         }
-		*/
+	
+	*/
 
 		//===============
 		
@@ -473,10 +477,10 @@ public:
             LogPrintf(" time: %u\n", genesis.nTime);
             LogPrintf(" hash: 0x%s\n", genesis.GetHash().ToString().c_str());
             LogPrintf(" merklehash: 0x%s\n", genesis.hashMerkleRoot.ToString().c_str());
-            assert(hashGenesisBlock == uint256("0x00000cca825dd6172161f67da130c10ac5dd1a68fc81c4fcaccd7cf315786ad3"));
+            assert(hashGenesisBlock == uint256("0x000004993c18ca5c7555bd9edbc7a693c39792618d616a5f84301a8b8b8ac91b"));
             assert(genesis.hashMerkleRoot == uint256("0xb34f5b46eb99e9bd8d68cd759e29e774d5af1757dc23a5b404aeb2a4603c4c27"));
         }
-		
+	
 		//===============================
 		
         // Regtestnet --- nonce: 12347 time: 1505224800 hash: 0x613e35c5b607586d3f5b8b109d162eac5fca0be0b0fa282277092e8dea8af138 merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
