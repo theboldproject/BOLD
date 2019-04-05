@@ -237,7 +237,7 @@ public:
         nPoolMaxTransactions = 3;
         strSporkKey = "04615040cee8445d8cdd48e41b72e487e3a1c0065c4727c1700a27a74e16285997b33a6f2b0ee9343442409d67e78f78f48bf925b3b4e21d4a7cf9776787337d3c";
         strSporkKeyTemp = "04d81bc201cf6df0e9a39b21c24000cf5a804949aaf0f352bcf07a5360e54a14bfe1090372fd502dd3646fa7f3aa5083531f8274f9b3891dbbed4b53fe89cb34c5";
-        strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
+        strObfuscationPoolDummyAddress = "BCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 6; // Number of confirmations for the finalization fee
     }
 
@@ -379,7 +379,7 @@ public:
         nPoolMaxTransactions = 2;
         strSporkKeyTemp = "0477daa7cb5666b6d20c00d645f36750f391e3664bc55a278fd6430eabbf87155bdc11820ce5cc11105daded8a348d90b0c9955c23d660ac06ad3cbc9aa36318b2";
         strSporkKey = "045b99b6c574b5ef03307352c9f8e854a90821c54cc3ca17c0cde061f4334f8a0c76643a329114956402552e69e55c33bed528fc4ba0ed4837c3273175ab7c2c1e";
-        strObfuscationPoolDummyAddress = "PCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
+        strObfuscationPoolDummyAddress = "BCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                      // here because we only have a 8 block finalization window on testnet
     }
