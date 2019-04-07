@@ -1612,8 +1612,23 @@ double ConvertBitsToDouble(unsigned int nBits)
     return dDiff;
 }
 
-int64_t GetBlockValue(int nHeight)
-{
+int64_t GetBlockValue(int nHeight) {
+	
+	if (Params().NetworkID() == CBaseChainParams::TESTNET) {
+		if (nHeight == 0) {
+			return 5000000 * COIN; // Swap amount
+		}
+		else if (nHeight < 83259746) {
+			return 54 * COIN;
+		}
+		else if (nHeight == 83259746) {
+			return 34 * COIN;
+		}
+		else {
+			return 0;
+		}
+	}
+	
     if (nHeight == 0) {
 	    return 5000000 * COIN; // Swap amount
     }
