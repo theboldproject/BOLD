@@ -909,8 +909,8 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
         return ((nSubsidy / 100) * 10) * 146;
     }
 
-    if (nHeight > 10000 && nHeight <= 83259746) { //budget available after block 10000 - about 1 week after wallet release
-        return 6 * COIN * 1440 * 30;
+    if (nHeight > 10000 && nHeight < 8500001) { //budget available after block 10000 - about 1 week after wallet release
+        return 4 * COIN * 1440 * 30; // 172,800 coins per 30-day cycle
     }
     return 0;
 }

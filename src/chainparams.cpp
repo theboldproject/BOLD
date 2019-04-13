@@ -111,10 +111,10 @@ public:
         nTargetSpacing = 1 * 60;  // Bold: 60 seconds
         nMaturity = 50;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 5000000000 * COIN;
+        nMaxMoneyOut = 200000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 400;
+        nLastPOWBlock = 1440;
         nModifierUpdateBlock = 1;
 
         /**
@@ -236,7 +236,7 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "04615040cee8445d8cdd48e41b72e487e3a1c0065c4727c1700a27a74e16285997b33a6f2b0ee9343442409d67e78f78f48bf925b3b4e21d4a7cf9776787337d3c";
-        strSporkKeyTemp = "04d81bc201cf6df0e9a39b21c24000cf5a804949aaf0f352bcf07a5360e54a14bfe1090372fd502dd3646fa7f3aa5083531f8274f9b3891dbbed4b53fe89cb34c5";
+        strSporkKeyTemp = "04ecf30a20336ec7ff165159a91b16468d92a74571b7e80400f1a661fdeec7322c2de30523360eb55f08f1a6709d20aa5815b802a8b48224318d6de6e2b7ce1a1d";
         strObfuscationPoolDummyAddress = "BCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 6; // Number of confirmations for the finalization fee
     }
@@ -377,7 +377,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = true;
 
         nPoolMaxTransactions = 2;
-        strSporkKeyTemp = "0477daa7cb5666b6d20c00d645f36750f391e3664bc55a278fd6430eabbf87155bdc11820ce5cc11105daded8a348d90b0c9955c23d660ac06ad3cbc9aa36318b2";
+        strSporkKeyTemp = "04cb43fc5d2dd3750fa1e04ac37350dd740d8fe775e4e34d3acb7fd307b3c0005cb87d85b085bc2f42f4af4f928bf12e90bc99f0ff0787ee61bca2fb02d4a3e594";
         strSporkKey = "045b99b6c574b5ef03307352c9f8e854a90821c54cc3ca17c0cde061f4334f8a0c76643a329114956402552e69e55c33bed528fc4ba0ed4837c3273175ab7c2c1e";
         strObfuscationPoolDummyAddress = "BCYiHgGJJ6xGHqivmdZrYjRnhaYf6AJ2Mp";
         nBudgetFeeConfirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
@@ -500,12 +500,8 @@ public:
         fMineBlocksOnDemand = true;
         fTestnetToBeDeprecatedFieldRPC = false;
 
-        // {
-        //     "PrivateKey": "923EhWh2bJHynX6d4Tqt2Q75bhTDCT1b4kff3qzDKDZHZ6pkQs7",
-        //     "PublicKey": "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a"
-        // }
-        strSporkKey = "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a";
-        strSporkKeyTemp = "04866dc02c998b7e1ab16fe14e0d86554595da90c36acb706a4d763b58ed0edb1f82c87e3ced065c5b299b26e12496956b9e5f9f19aa008b5c46229b15477c875a";
+        strSporkKey = "04be8aa9cae2df33ffa2eb4b7285884320ad8b77ae079df0ae085d8d5027b9e93a7ece868bd10b6f0b75c895be34f582cf765e978133f022cd4a256e4a16af17de";
+        strSporkKeyTemp = "04d3b43868dffd3ff123b3b5a3f558c23b35e3f26deb416c777f8cfa5bb84c03fd8ddff61eca4e80006a97211114713ef6441b37ddce67dfe86b5328f3cec0b4b3";
     }
     const Checkpoints::CCheckpointData& Checkpoints() const
     {

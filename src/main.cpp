@@ -1614,39 +1614,15 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight) {
 	
-	if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-		if (nHeight == 0) {
-			return 5000000 * COIN; // Swap amount
-		}
-		else if (nHeight < 83259746) {
-			return 54 * COIN;
-		}
-		else if (nHeight == 83259746) {
-			return 34 * COIN;
-		}
-		else {
-			return 0;
-		}
-	}
-	
     if (nHeight == 0) {
-	    return 5000000 * COIN; // Swap amount
-    }
-    else if (nHeight <= Params().LAST_POW_BLOCK()) {
-	    return 0; //no reward during pow phase
-    }
-    else if (nHeight <= 10000) {
-	    return 2 * COIN; // Low PoS reward for about 1 week following initial wallet launch
-    }
-    else if (nHeight < 83259746) {
-	    return 54 * COIN;
-    }
-    else if (nHeight == 83259746) {
-	    return 34 * COIN;
-    }
-    else {
-	    return 0;
-    }
+		return 30000000 * COIN; // Swap amount
+	}
+	else if (nHeight < 8500001) {
+		return 20 * COIN;
+	}
+	else {
+		return 0;
+	}
 }
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
