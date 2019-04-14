@@ -210,8 +210,7 @@ public:
 		
         // Mainnet --- nonce: 1 time: 1536266133 hash: 0x0b58ed450b3819ca54ab0054c4d220ca4f887d21c9e55d2a333173adf76d987f merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
-        vSeeds.push_back(CDNSSeedData("seed1", "seed1.boldproject.io"));
-		vSeeds.push_back(CDNSSeedData("seed2", "seed2.boldproject.io"));
+        vSeeds.push_back(CDNSSeedData("0", "dns1.cryptotron.xyz"));
         
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 26); // BOLD addresses start with 'B'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 8); // BOLD script addresses start with '8'
@@ -349,10 +348,10 @@ public:
 		
         // Testnet --- nonce: 1 time: 1505224800 hash: 0x7fbf5849b7a8602fecd2d5e4465b3d4f0bfb482b02c87388b925009d14ba7e42 merklehash: 0x72aeadf2484a1961e260a25d5d03ced4452e834eeed6bdc4457252f6c444914e
 
-        vFixedSeeds.clear();
-        vSeeds.clear();
+        //vFixedSeeds.clear();
+        //vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("testseed", "testseed.boldproject.io"));
+        vSeeds.push_back(CDNSSeedData("1", "dns1.cryptotron.xyz"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58); // Testnet bold addresses start with 'Q'
