@@ -1617,8 +1617,8 @@ int64_t GetBlockValue(int nHeight) {
     if (nHeight == 0) {
 		return 30000000 * COIN; // Swap amount
 	}
-	else if (nHeight < 8500001) {
-		return 20 * COIN;
+	else if (nHeight <= 8500000) {
+		return 16 * COIN;
 	}
 	else {
 		return 0;
