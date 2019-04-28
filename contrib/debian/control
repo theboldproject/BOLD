@@ -1,7 +1,7 @@
 Source: bold
 Section: utils
 Priority: optional
-Maintainer: Cryptotron <cryptotronn@boldproject.io>
+Maintainer: Cryptotron <cryptotron@boldproject.io>
 Uploaders: Cryptotron <cryptotron@boldproject.io>
 Build-Depends: debhelper,
  devscripts,
