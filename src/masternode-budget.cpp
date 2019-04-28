@@ -172,7 +172,7 @@ void CBudgetManager::SubmitFinalBudget()
         // NOTE: 9 blocks for testnet is way to short to have any masternode submit an automatic vote on the finalized(!) budget,
         //       because those votes are only submitted/relayed once every 56 blocks in CFinalizedBudget::AutoCheck()
 
-        finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
+        //finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
     }
 
     int nFinalizationStart = nBlockStart - finalizationWindow;
