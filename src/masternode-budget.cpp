@@ -63,6 +63,8 @@ bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, s
         }
         if (fBudgetFinalization) {
             // Collateral for budget finalization
+            // Note: there are still old valid budgets out there, but the check for the new 25 PHR finalization collateral
+            //       will also cover the old 50 PHR finalization collateral.
             LogPrint("mnbudget", "Final Budget: o.scriptPubKey(%s) == findScript(%s) ?\n", o.scriptPubKey.ToString(), findScript.ToString());
             if (o.scriptPubKey == findScript) {
                 LogPrint("mnbudget", "Final Budget: o.nValue(%ld) >= BUDGET_FEE_TX(%ld) ?\n", o.nValue, GetBudgetSystemCollateralAmount(chainActive.Height()));
@@ -170,7 +172,7 @@ void CBudgetManager::SubmitFinalBudget()
         // NOTE: 9 blocks for testnet is way to short to have any masternode submit an automatic vote on the finalized(!) budget,
         //       because those votes are only submitted/relayed once every 56 blocks in CFinalizedBudget::AutoCheck()
 
-        finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
+        // finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
     }
 
     int nFinalizationStart = nBlockStart - finalizationWindow;
