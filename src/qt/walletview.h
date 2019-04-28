@@ -1,6 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2017-2018 The PIVX developers
 // Copyright (c) 2018 The Phore developers
+// Copyright (c) 2019 The BOLD developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -68,7 +69,7 @@ private:
     SendCoinsDialog* sendCoinsPage;
     BlockExplorer* explorerWindow;
     MasternodeList* masternodeListPage;
-    QWidget* proposalListPage;
+    QWidget* proposalListPage;	
 
     TransactionView* transactionView;
     ProposalList* proposalList;
@@ -104,7 +105,6 @@ public slots:
     void gotoBip38Tool();
 
     /** Show incoming transaction notification for new transactions.
-
         The new items are those between start and end inclusive, under the given parent item.
     */
     void processNewTransaction(const QModelIndex& parent, int start, int /*end*/);
