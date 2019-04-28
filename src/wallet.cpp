@@ -3,7 +3,8 @@
 // Copyright (c) 2012-2013 The PPCoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2018 The PIVX developers
-// Copyright (c) 2015-2018 The MUEX developers
+// Copyright (c) 2017-2019 The Phore developers
+// Copyright (c) 2018-2019 The MonetaryUnit developers
 // Copyright (c) 2019-2020 The BOLD developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
