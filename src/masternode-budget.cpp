@@ -904,7 +904,14 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
 {
     if (chainActive.Tip() == NULL) return 0;
 
-    if (nHeight > 1440 && nHeight < 8500001) { //budget available after block 10000 - about 1 week after wallet release. *** 1440 for now
+    if (Params().NetworkID() == CBaseChainParams::TESTNET) { // Testnet, budget available after 144 blocks
+        if (nHeight > 144 && nHeight < 8500001) { 
+            return 4 * COIN * 1440 * 30; // 172,800 coins per 30-day cycle. 20% of reward
+        }
+        return 0;
+    }
+
+    if (nHeight > 10000 && nHeight < 8500001) { //mainnet budget available after block 10000 - about 1 week after wallet release. 
         return 4 * COIN * 1440 * 30; // 172,800 coins per 30-day cycle. 20% of reward
     }
     return 0;
