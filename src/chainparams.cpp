@@ -275,7 +275,7 @@ public:
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 1; 
         nMaxMoneyOut = 1000000000 * COIN;
-        nLastPOWBlock = 300;
+        nLastPOWBlock = 400;
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1554366099;

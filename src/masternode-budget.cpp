@@ -172,7 +172,7 @@ void CBudgetManager::SubmitFinalBudget()
         // NOTE: 9 blocks for testnet is way to short to have any masternode submit an automatic vote on the finalized(!) budget,
         //       because those votes are only submitted/relayed once every 56 blocks in CFinalizedBudget::AutoCheck()
 
-        //finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
+        finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
     }
 
     int nFinalizationStart = nBlockStart - finalizationWindow;
@@ -902,16 +902,9 @@ std::string CBudgetManager::GetRequiredPaymentsString(int nBlockHeight)
 
 CAmount CBudgetManager::GetTotalBudget(int nHeight)
 {
-    if (chainActive.Tip() == NULL) return 0;
+    if (chainActive.Tip() == NULL) return 0;    
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) { // Testnet, budget available after 144 blocks
-        if (nHeight > 144 && nHeight < 8500001) { 
-            return 4 * COIN * 1440 * 30; // 172,800 coins per 30-day cycle. 20% of reward
-        }
-        return 0;
-    }
-
-    if (nHeight > 10000 && nHeight < 8500001) { //mainnet budget available after block 10000 - about 1 week after wallet release. 
+    if (nHeight > 200 && nHeight < 8500001) { //budget available after block 200 
         return 4 * COIN * 1440 * 30; // 172,800 coins per 30-day cycle. 20% of reward
     }
     return 0;
