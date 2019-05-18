@@ -3239,7 +3239,7 @@ https://www.transifex.com/bold-project/bold-project-translations</translation>
         <translation>Copyright (C) 2014-%i Разработчики Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Bold Core Developers</source>
+        <source>Copyright (C) 2018-%i The Bold Core Developers</source>
         <translation>Copyright (C) 2015-%i Разработчики Bold Core</translation>
     </message>
     <message>

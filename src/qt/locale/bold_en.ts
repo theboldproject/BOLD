@@ -5812,7 +5812,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Bold Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) 2015-%i The Bold Core Developers</source>
+        <source>Copyright (C) 2018-%i The Bold Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

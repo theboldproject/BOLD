@@ -4706,7 +4706,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Bold Alert&quot; admin@foo.com
         <translation>Copyright (C) 2014-%i Dash コア開発者チーム</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Bold Core Developers</source>
+        <source>Copyright (C) 2018-%i The Bold Core Developers</source>
         <translation>Copyright (C) 2015-%i Bold コア開発者チーム</translation>
     </message>
     <message>
@@ -5666,8 +5666,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Bold Alert&quot; admin@foo.com
         <translation>Copyright (C) 2015-%i PIVX コア開発者チーム</translation>
     </message>
     <message>
-        <source>Copyright (C) 2017-%i The Bold Core Developers</source>
-        <translation>Copyright (C) 2015-%i Bold コア開発者チーム {2017-?}</translation>
+        <source>Copyright (C) 2018-%i The Bold Core Developers</source>
+        <translation>Copyright (C) 2018-%i Bold コア開発者チーム {2017-?}</translation>
     </message>
     <message>
         <source>Delete blockchain folders and resync from scratch</source>
